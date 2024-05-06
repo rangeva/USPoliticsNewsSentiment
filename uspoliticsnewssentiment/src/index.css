@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+  gap: 20px;
+}
+
+.profile-image img {
+  width: 300px; /* Fixed size or use max-width for responsiveness */
+  height: auto;
+  border-radius: 10px; /* Optional: for rounded corners */
+}
+
+.profile-details {
+  flex: 1; /* Takes remaining space */
+  padding: 10px;
+}
+
+.profile-details h1, .profile-details h2, .profile-details p {
+  margin: 10px 0; /* Spacing between text elements */
+}
+
+
+.articles-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.article-section {
+  flex: 1 1 45%; /* Allows wrapping and maintains a minimum width */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.article-card {
+  margin-bottom: 20px;
+}
+
+.article-card img {
+  width: 100%;
+  max-width: 300px; /* Ensures images are not too large */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 8px 16px;
+}
+
+
+
+.profile-container {
+  display: flex;
+  align-items: start; /* Align items at the top */
+  padding: 20px;
+  gap: 20px;
+}
+
+.profile-image {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+
+.profile-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px; /* Gap between the image and links */
+}
+
+.profile-links h5, .profile-links a {
+  margin: 4px 0; /* Spacing between text elements */
+}
+
+.social-links {
+  margin-top: 10px; /* Extra space above social media links */
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 10px; /* Space between icons */
+  font-size: 24px; /* Larger icons for better visibility */
+  color: #333; /* Default color, change as needed */
+}
+
+.social-links a:hover {
+  color: #0056b3; /* Hover effect color change */
+}
+
+.profile-details {
+  flex: 1;
+  padding: 10px;
+}
+
+.profile-details h1, .profile-details h2, .profile-details p {
+  margin: 10px 0;
+}
