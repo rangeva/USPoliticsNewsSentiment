@@ -1,13 +1,13 @@
 import React from 'react';
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faTwitter, faGoogle, faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 export default function Footer() {
     return (
         <div>
-            <footer className="text-center text-lg-start bg-body-tertiary text-muted">
-                {/* Section: Links */}
+            <footer className="text-center text-lg-start bg-body-tertiary text-muted" style={{ paddingTop: "2rem" }}>
                 <section>
                     <div className="container text-center text-md-start mt-5">
                         <div className="row mt-3">
@@ -22,19 +22,19 @@ export default function Footer() {
                                     Site Links
                                 </h6>
                                 <p>
-                                    <a href="#!" className="text-reset">Home</a>
+                                    <Link to="/" className="text-reset">Home</Link>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">How it Works</a>
+                                    <Link to="#" className="text-reset">How it Works</Link>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Access Token</a>
+                                    <Link to="#" className="text-reset">Access Token</Link>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">FAQ;s</a>
+                                    <Link to="#" className="text-reset">FAQ's</Link>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Contact</a>
+                                    <Link to="#" className="text-reset">Contact</Link>
                                 </p>
                             </div>
 
@@ -43,36 +43,36 @@ export default function Footer() {
                                     Others
                                 </h6>
                                 <p>
-                                    <a href="#!" className="text-reset">Terms of Services</a>
+                                    <Link to="#" className="text-reset">Terms of Services</Link>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">Privacy Policy</a>
+                                    <Link to="#" className="text-reset">Privacy Policy</Link>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">News API</a>
+                                    <Link to="#" className="text-reset">News API</Link>
                                 </p>
                             </div>
 
                             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                                <h6 className="text-uppercase fw-bold mb-4">social Media</h6>
+                                <h6 className="text-uppercase fw-bold mb-4">Social Media</h6>
                                 <div>
                                     <a href="https://www.facebook.com/your-page" className="me-4 text-reset">
-                                        <i className="fab fa-facebook-f"></i>
+                                        <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
                                     <a href="https://www.twitter.com/your-profile" className="me-4 text-reset">
-                                        <i className="fab fa-twitter"></i>
+                                        <FontAwesomeIcon icon={faTwitter} />
                                     </a>
                                     <a href="https://www.google.com" className="me-4 text-reset">
-                                        <i className="fab fa-google"></i>
+                                        <FontAwesomeIcon icon={faGoogle} />
                                     </a>
                                     <a href="https://www.instagram.com/your-profile" className="me-4 text-reset">
-                                        <i className="fab fa-instagram"></i>
+                                        <FontAwesomeIcon icon={faInstagram} />
                                     </a>
                                     <a href="https://www.linkedin.com/in/your-profile" className="me-4 text-reset">
-                                        <i className="fab fa-linkedin"></i>
+                                        <FontAwesomeIcon icon={faLinkedin} />
                                     </a>
                                     <a href="https://www.github.com/your-profile" className="me-4 text-reset">
-                                        <i className="fab fa-github"></i>
+                                        <FontAwesomeIcon icon={faGithub} />
                                     </a>
                                 </div>
                             </div>
@@ -84,5 +84,5 @@ export default function Footer() {
                 </div>
             </footer>
         </div>
-    )
+    );
 }

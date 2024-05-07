@@ -3,20 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import { people } from './PeopleData';
 
+
 export default function Newscard() {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
-    const showTimeout = useRef(null);
-    const hideTimeout = useRef(null);
 
     const handleMouseEnter = () => {
-        clearTimeout(hideTimeout.current);
-        showTimeout.current = setTimeout(() => setShow(true), 300);
-    };
-
-    const handleMouseLeave = () => {
-        clearTimeout(showTimeout.current);
-        hideTimeout.current = setTimeout(() => setShow(false), 30000);
+        setShow(true);
     };
 
     const handleClose = () => {
@@ -32,7 +25,7 @@ export default function Newscard() {
             <div className="row row-cols-1 row-cols-md-2 g-4">
                 {people.map(person => (
                     <div key={person.id} className="col">
-                        <div className="card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                        <div className="card" onMouseEnter={handleMouseEnter}>
                             <img src={person.image} className="card-img-top" alt={person.name} />
                         </div>
                     </div>
@@ -45,10 +38,10 @@ export default function Newscard() {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="row">
-                        <h4>Pick a candidate  to View Latest News</h4>
+                        <h4>Pick a candidate to View Latest News</h4>
                         {people.map(person => (
                             <div key={person.id} className="col-md-6" onClick={() => handleProfileClick(person.id)} style={{ cursor: 'pointer' }}>
-                                <img src={person.image} alt={person.name} className="img-fluid" />
+                                <img src={person.secondImage} alt={person.name} className="img-fluid" />
                                 <h2>{person.name}</h2>
                                 <h5>{person.title}</h5>
                                 <p>{person.description}</p>
