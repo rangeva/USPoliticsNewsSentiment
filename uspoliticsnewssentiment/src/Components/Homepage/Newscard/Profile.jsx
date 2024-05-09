@@ -4,72 +4,76 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { people } from './PeopleData';
 import PieChart from '../../../Piechart/Piechart';
-import { useDispatch, useSelector } from 'react-redux';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
 
 
 export default function Profile(name) {
     const { id } = useParams();
-    const person = people.find(p => p.id === id);
-    const [positiveAction, setPositiveAction] = useState('');
-    const [negativeAction, setNegativeAction] = useState('');
-
     const dispatch = useDispatch();
+    const person = people.find(p => p.id === id);
+    const [order, setOrder] = useState('desc'); 
+    const Token = 'db458c9d-4ffc-4c44-b0b8-0cb0821aba84';
+
     const positivearticle = useSelector((state) => state.news.ArticlesData);
-    const negativearticle = useSelector((state) => state.news.NegativearticleData)
-    // const nextpagenation = useSelector((state) => state.news.NexpaginationAction)
-    // console.log(newsarticledata.posts[''].author);
-    // newsarticledata.posts.forEach(post => {
-    //    
-    // });
-    console.log(positivearticle);
+    const negativearticle = useSelector((state) => state.news.NegativearticleData);
     const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
     const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
 
-
     useEffect(() => {
-        dispatch(ArticledisplayAction(id));
-    }, [dispatch, id])
+        if (id) {
+            console.log(`Fetching articles for ID: ${id} with order: ${order}`);
+            dispatch(ArticledisplayAction(id, Token, order));
+        }
+    }, [dispatch, id, order]);
 
+    // Show publisg article based on timestamp
+    // useEffect(() => {
+    //     filterArticles(articles.ArticlesData, 'positive');
+    //     filterArticles(articles.NegativearticleData, 'negative');
+    // }, [articles, articleFilter]);
 
-    const handlePositiveChange = (event) => {
-        setPositiveAction(event.target.value);
-
+    // const handleFilterChange = (type) => (event) => {
+    //     setArticleFilter(prev => ({ ...prev, [type]: event.target.value }));
+    // };
+    // const filterArticles = (articlesData, type) => {
+    //     let sortedArticles = [...articlesData.posts];
+    //     if (articleFilter[type] === 'mostRecent') {
+    //         sortedArticles.sort((a, b) => new Date(b.published) - new Date(a.published));
+    //     } else if (articleFilter[type] === 'mostPopular') {
+    //         // Define sorting based on another criteria if needed
+    //     }
+    //     setDisplayedArticles(prev => ({ ...prev, [type]: sortedArticles }));
+    // };
+    const handleOrderChange = (event) => {
+        setOrder(event.target.value);
+        console.log(`Order changed to: ${event.target.value}`);
     };
-    const handleNegativeChange = (event) => {
-        setNegativeAction(event.target.value);
 
-    };
-
+    
     if (!person) return <div>Profile not found.</div>;
+    // const { positive, negative } = person.articles;
 
-    const { positive, negative } = person.articles;
+    // Pagination handler
+    const handlePageChange = () => {
+        const positiveNextUrl = positivearticle.next;
+        const negativeNextUrl = negativearticle.next;
 
-    const handlePageChange = async (url) => {
-        console.log(url);
-        // try {
-        //     let nextPage;
-        //     if (pageNumber === 'next') {
-        //         nextPage = currentPage + 1;
-        //     } else if (pageNumber === 'prev') {
-        //         nextPage = currentPage - 1;
-        //     } else {
-        //         nextPage = pageNumber;
-        //     }
-        // setCurrentPage(nextPage);
-        dispatch(NexpaginationAction(url));
-        // } catch (error) {
-        //     console.error('Error fetching articles:', error.message);
-        // }
+        if (positiveNextUrl && negativeNextUrl) {
+            dispatch(NexpaginationAction(positiveNextUrl, negativeNextUrl));
+        } else {
+            console.error("Pagination URLs missing for positive or negative articles");
+        }
     };
+
 
     return (
         <section style={{ paddingTop: "1rem" }}>
             <div>
-                <span >
+                <span>
                     <Link to="/" style={{ color: 'orange' }}>
                         Back to Candidate Selection
                     </Link>
@@ -148,13 +152,13 @@ export default function Profile(name) {
 
                 <div className="articles-container">
                     <div className="article-section">
-                        <h3>Positive Articles
-                            <select onChange={handlePositiveChange} value={positiveAction}>
-                                <option value="all">All</option>
-                                <option value="mostRecent">Most Recent</option>
-                                <option value="mostPopular"> Show Latest</option>
+                        <h4> {totalPositiveCount} Positive Articles
+                            <select onChange={handleOrderChange} value={order}>
+                                {/* <option value="desc">All</option> */}
+                                <option value="desc">Latest</option>
+                                <option value="asc">Oldest </option>
                             </select>
-                        </h3>
+                        </h4>
                         {positivearticle && positivearticle?.posts?.map((article, index) => (
                             <div key={index} className="article-card">
                                 <img src={article.thread.main_image} alt={article.title} />
@@ -173,15 +177,14 @@ export default function Profile(name) {
                             </div>
                         ))}
                     </div>
-
                     <div className="article-section" >
-                        <h3>Negative Articles
-                            <select onChange={handleNegativeChange} value={negativeAction} >
-                                <option value="all">All</option>
-                                <option value="mostRecent">Most Recent</option>
-                                <option value="mostPopular"> Show Latest</option>
+                        <h4> {totalNegativeCount}  Negative Articles
+                            <select onChange={handleOrderChange} value={order} >
+                                {/* <option value="desc">All</option> */}
+                                <option value="desc">Latest</option>
+                                <option value="asc"> Oldest </option>
                             </select>
-                        </h3>
+                        </h4>
                         {negativearticle && negativearticle?.posts?.map((article, index) => (
                             <div key={index} className="article-card">
                                 <img src={article.thread.main_image} alt={article.title} />
@@ -207,14 +210,12 @@ export default function Profile(name) {
                 <nav aria-label="Page navigation example">
                     <ul className="pagination">
                         <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => handlePageChange('prev')}>
+                            <a className="page-link" href="#">
                                 Previous
                             </a>
                         </li>
                         <li className="page-item">
-                            <a className="page-link" onClick={() => handlePageChange(positivearticle.next)}>
-                                Next
-                            </a>
+                            <a className="page-link" onClick={handlePageChange}> Next </a>
                         </li>
                     </ul>
                 </nav>
