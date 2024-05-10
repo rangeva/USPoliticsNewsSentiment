@@ -10,18 +10,21 @@ import { people } from './PeopleData';
 import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
 
+const Token = process.env.REACT_APP_API_TOKEN;
+console.log(Token)
 
 export default function Profile(name) {
     const { id } = useParams();
     const dispatch = useDispatch();
     const person = people.find(p => p.id === id);
     const [order, setOrder] = useState('desc'); 
-    const Token = 'db458c9d-4ffc-4c44-b0b8-0cb0821aba84';
+    
 
     const positivearticle = useSelector((state) => state.news.ArticlesData);
     const negativearticle = useSelector((state) => state.news.NegativearticleData);
     const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
     const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
+    // console.log(totalPositiveCount, totalNegativeCount);
 
     useEffect(() => {
         if (id) {
@@ -68,8 +71,6 @@ export default function Profile(name) {
             console.error("Pagination URLs missing for positive or negative articles");
         }
     };
-
-
     return (
         <section style={{ paddingTop: "1rem" }}>
             <div>
@@ -143,8 +144,7 @@ export default function Profile(name) {
                             </div>
                         </div>
                         <div className="right-column">
-                            {/* <PieChart articles={person.articles} context="profile" /> */}
-                            <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} />
+                            <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} context="profile" />
                         </div>
                     </div>
                 </section>

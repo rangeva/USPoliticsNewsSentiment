@@ -1,38 +1,25 @@
 import React,{useEffect} from 'react';
 import { people } from '../Newscard/PeopleData';
 import PieChart from '../../../Piechart/Piechart';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { ArticledisplayAction } from '../../../Redux/Action/Authaction';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { PietotalresultAction} from '../../../Redux/Action/Authaction';  
 
 
 export default function Chart() {
-    // const dispatch = useDispatch();
-    const aggregatedArticles = people.reduce((acc, person) => {
-        if (person.articles.positive) {
-            acc.positive = acc.positive.concat(person.articles.positive);
-        }
-        if (person.articles.negative) {
-            acc.negative = acc.negative.concat(person.articles.negative);
-        }
-        return acc;
-    }, { positive: [], negative: [] });
+    const dispatch = useDispatch();
+    const pietotalPositiveCount = useSelector((state) => state.news.pietotalPositiveCount);
+    const pietotalNegativeCount = useSelector((state) => state.news.pietotalNegativeCount);
+    console.log(pietotalPositiveCount,pietotalNegativeCount,"hhhhhhhhhhh")
 
-    // const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
-    // const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
-    
-
-    // useEffect(() => {
-    //     dispatch(ArticledisplayAction());
-    // }, [dispatch])
-
+    useEffect(() => {
+        dispatch(PietotalresultAction());
+    }, [dispatch]);
 
     return (
         <div className="flex-container" style={{ paddingTop: "2rem" }}>
             <div className="flex-item">
-                <PieChart articles={aggregatedArticles} context="home" />
-                {/* <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} /> */}
+                {/* <PieChart articles={aggregatedArticles} context="home" /> */}
+                <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />
             </div>
 
             <div className="flex-item content">
