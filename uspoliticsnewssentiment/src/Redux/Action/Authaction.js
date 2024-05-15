@@ -1,52 +1,94 @@
 import axios from "axios";
-import { ArticleSlice, NegativeArticleSlice } from "../Slice/Authslice";
+import Swal from 'sweetalert2';
+import { ArticleSlice, NegativeArticleSlice, PietotalnegativeresultSlice, PietotalpositiveresultSlice, PietotalresultSlice } from "../Slice/Authslice";
 
-
-const BACKEND_URL = process.env.APP_BASE_URL;
-const Token = process.env.Api_Token;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // ArticlesNews
-export const ArticledisplayAction = (name, token = '35032520-0852-4aae-ad57-572608440395',sort = 'desc', orderField = 'published') => async (dispatch) => {
+export const ArticledisplayAction = (name, sort = 'desc', orderField = 'published') => async (dispatch) => {
     try {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-        const positiveResponse = await axios.get(`https://api.webz.io/newsApiLite?token=${token} &q=sentiment:positive thread.title:${name} election`, config);
-        //   debugger
-        dispatch(ArticleSlice(positiveResponse.data));
-
-        const negativeResponse = await axios.get(`https://api.webz.io/newsApiLite?token=${token}&q=sentiment:negative thread.title:${name} election`, config);
-        // debugger
-        dispatch(NegativeArticleSlice(negativeResponse.data));
-        console.log(negativeResponse, 'okkkk3333')
-
-    } catch (error) {
-        if (error?.response?.data.message) {
-            // dispatch(ArticleSlice(error.message));
-            console.error(error);
-        }
-    }
-};
-
-
-
-export const NexpaginationAction = (positiveUrl, negativeUrl) => async (dispatch) => {
-    try {
+        const token = localStorage.getItem('accessToken'); // Retrieve token from localStorage
+        
         const config = {
             headers: {
                 'Content-Type': 'application/json',
             },
         }
         const [positiveResponse, negativeResponse] = await Promise.all([
-            axios.get(`https://api.webz.io/${positiveUrl}`, config),
-            axios.get(`https://api.webz.io/${negativeUrl}`, config)
+            axios.get(`${BASE_URL}/newsApiLite?token=${token}&q=sentiment:positive thread.title:${name} election`, config),
+            axios.get(`${BASE_URL}/newsApiLite?token=${token}&q=sentiment:negative thread.title:${name} election`, config)
+        ]);
+
+        dispatch(ArticleSlice(positiveResponse.data));
+        dispatch(NegativeArticleSlice(negativeResponse.data));
+    } catch (error) {
+        if (error.response && error.response.status === 429) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Too many requests',
+                text: 'You have exceeded the limit of requests. Please try again later.',
+            });
+        } else if (error?.response?.data.message) {
+            console.error(error);
+        }
+    }
+};
+
+
+// Paginstaion 
+export const NexpaginationAction = (positiveUrl, negativeUrl) => async (dispatch) => {
+    try {
+        const token = localStorage.getItem('accessToken'); // Retrieve token from localStorage
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+        const [positiveResponse, negativeResponse] = await Promise.all([
+            axios.get(`${BASE_URL}/${positiveUrl}`, config),
+            axios.get(`${BASE_URL}/${negativeUrl}`, config)
         ]);
 
         dispatch(ArticleSlice(positiveResponse.data));
         dispatch(NegativeArticleSlice(negativeResponse.data));
     } catch (error) {
         console.error('Error fetching paginated articles:', error);
+    }
+};
+
+
+// Piechart total count
+export const PietotalresultAction = () => async (dispatch) => {
+    try {
+        const token = localStorage.getItem('accessToken'); // Retrieve token from localStorage
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+        const [positiveResponse, negativeResponse] = await Promise.all([
+            axios.get(`${BASE_URL}/newsApiLite?token=${token}&q=sentiment:positive thread.title:trump%20biden`, config),
+            axios.get(`${BASE_URL}/newsApiLite?token=${token}&q=sentiment:negative thread.title:trump%20biden`, config)
+        ]);
+
+        dispatch(PietotalpositiveresultSlice(positiveResponse.data));
+        dispatch(PietotalnegativeresultSlice(negativeResponse.data));
+    } catch (error) {
+        if (error.response && error.response.status === 429) {
+            setTimeout(() => {
+                dispatch(PietotalresultAction()); // Call action recursively
+            }, 5000);
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'Too many requests',
+            //     text: 'Used 1000 out of 1000 allowed in a month',
+            // });
+        } else {
+            console.error('Error fetching totalresult articles:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Token is not valid',
+            });
+        }
     }
 };

@@ -1,41 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { useDispatch, useSelector } from 'react-redux';
+    import { Link } from 'react-router-dom';
+    import { useParams } from 'react-router-dom';
+    import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+    import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+    import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+    import { useDispatch, useSelector } from 'react-redux';
 
-import { people } from './PeopleData';
-import PieChart from '../../../Piechart/Piechart';
-import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
+    import { people } from './PeopleData';
+    import PieChart from '../../../Piechart/Piechart';
+    import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
+
+    // const Token = process.env.REACT_APP_API_TOKEN;
+    // console.log(Token)
 
 
 export default function Profile(name) {
     const { id } = useParams();
-    const dispatch = useDispatch();
-    const person = people.find(p => p.id === id);
-    const [order, setOrder] = useState('desc');
-    const Token = '35032520-0852-4aae-ad57-572608440395';
+        const dispatch = useDispatch();
+        const person = people.find(p => p.id === id);
+        const [order, setOrder] = useState('desc'); 
+        const [token, setToken] = useState(localStorage.getItem('accessToken') || ''); // Retrieve token from localStorage
+        console.log(token, 'ppp')
+        const positivearticle = useSelector((state) => state.news.ArticlesData);
+        const negativearticle = useSelector((state) => state.news.NegativearticleData);
+        const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
+        const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
+        // console.log(totalPositiveCount, totalNegativeCount);
 
-    const positivearticle = useSelector((state) => state.news.ArticlesData);
-    const negativearticle = useSelector((state) => state.news.NegativearticleData);
-    const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
-    const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
-    console.log(positivearticle,'ppp')
-
-    useEffect(() => {
-        if (id) {
-            console.log(`Fetching articles for ID: ${id} with order: ${order}`);
-            dispatch(ArticledisplayAction(id, Token, order));
-        }
-    }, [dispatch, id, order]);
+   useEffect(() => {
+            if (id && token) {
+                console.log(`Fetching articles for ID: ${id} with order: ${order}`);
+                dispatch(ArticledisplayAction(id, token, order));
+            }
+        }, [dispatch, id, order,token]);
 
    
-    const handleOrderChange = (event) => {
-        setOrder(event.target.value);
-        console.log(`Order changed to: ${event.target.value}`);
-    };
+      const handleOrderChange = (event) => {
+            setOrder(event.target.value);
+            console.log(`Order changed to: ${event.target.value}`);
+        };
+
+
+        // Pagination handler
+        const handlePageChange = () => {
+            const positiveNextUrl = positivearticle.next;
+            const negativeNextUrl = negativearticle.next;
+
+            if (positiveNextUrl && negativeNextUrl) {
+                dispatch(NexpaginationAction(positiveNextUrl, negativeNextUrl));
+            } else {
+                console.error("Pagination URLs missing for positive or negative articles");
+            }
+        };
 
 
     if (!person) return <div>Profile not found.</div>;
@@ -52,12 +68,14 @@ export default function Profile(name) {
             console.error("Pagination URLs missing for positive or negative articles");
         }
     };
+ const formatDate = (dateString) => {
+            const date = new Date(dateString);
+            const options = { day: '2-digit', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('en-GB', options);
+          };
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const options = { day: '2-digit', month: 'short', year: 'numeric' };
-        return date.toLocaleDateString('en-GB', options);
-      };
+        if (!person) return <div>Profile not found.</div>;
+        // const { positive, negative } = person.articles;
 
 
     return (
@@ -109,22 +127,22 @@ export default function Profile(name) {
                                             <ul className='list-inline mb-0'>
                                                 <li>
                                                     <Link to={person.socialLinks.facebook}>
-                                                        <img src="/images/or_facebook.svg" alt="" />
+                                                      <FontAwesomeIcon icon={faFacebookF} />
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={person.socialLinks.twitter}>
-                                                        <img src="/images/or_x.svg" alt="" />
+                                                       <FontAwesomeIcon icon={faTwitter} />
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={person.socialLinks.instagram}>
-                                                        <img src="/images/or_instagram.svg" alt="" />
+                                                       <FontAwesomeIcon icon={faInstagram} />
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={person.socialLinks.youtube}>
-                                                        <img src="/images/or_youtube.svg" alt="" />
+                                                         <FontAwesomeIcon icon={faYoutube} />
                                                     </Link>
                                                 </li>
                                             </ul>
@@ -201,7 +219,7 @@ export default function Profile(name) {
                         </div>
                         <div className="col-md-5 col-xl-4 offset-xl-1">
                             {/* <PieChart articles={person.articles} context="profile" /> */}
-                            <PieChart totalPositiveCount={5} totalNegativeCount={12} />
+                             <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} context="profile" />
                         </div>
                     </div>
                 </div>
@@ -302,9 +320,9 @@ export default function Profile(name) {
                     </nav>
                 </div>
             </section>
-        </main>
-    );
-}
+        );
+    }
+
 
 
 

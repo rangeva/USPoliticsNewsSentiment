@@ -21,6 +21,7 @@ export default function Footer() {
                                 <h6 className="foot-title">
                                     Site Links
                                 </h6>
+
                                 <ul className='list-inline mb-lg-0'>
                                     <li>
                                         <Link to="/" className="text-reset">Home</Link>

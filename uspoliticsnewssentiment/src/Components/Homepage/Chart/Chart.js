@@ -2,31 +2,20 @@ import React,{useEffect} from 'react';
 import { people } from '../Newscard/PeopleData';
 import PieChart from '../../../Piechart/Piechart';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { ArticledisplayAction } from '../../../Redux/Action/Authaction';
-
-
+import { PietotalresultAction} from '../../../Redux/Action/Authaction';  
 
 
 export default function Chart() {
     const dispatch = useDispatch();
-    const aggregatedArticles = people.reduce((acc, person) => {
-        if (person.articles.positive) {
-            acc.positive = acc.positive.concat(person.articles.positive);
-        }
-        if (person.articles.negative) {
-            acc.negative = acc.negative.concat(person.articles.negative);
-        }
-        return acc;
-    }, { positive: [], negative: [] });
-
-    const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
-    const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
-    
+    const pietotalPositiveCount = useSelector((state) => state.news.pietotalPositiveCount);
+    const pietotalNegativeCount = useSelector((state) => state.news.pietotalNegativeCount);
+    // console.log(pietotalPositiveCount,pietotalNegativeCount,"hhhhhhhhhhh")
 
     useEffect(() => {
-        dispatch(ArticledisplayAction());
-    }, [dispatch])
-
+        dispatch(PietotalresultAction());
+    }, [dispatch]);
 
     return (
         <section className='chart-section bg_gray'>
@@ -34,7 +23,7 @@ export default function Chart() {
                 <div className='row'>
                     <div className="col-lg-6 mb-5 mb-lg-0">
                         {/* <PieChart articles={aggregatedArticles} context="home" /> */}
-                        <PieChart totalPositiveCount={12} totalNegativeCount={69} />
+                         <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />
                     </div>
 
                     <div className="col-lg-6 section-title pe-xxl-1">
@@ -47,11 +36,14 @@ export default function Chart() {
                         </div>
 
                         <div className="buttons-holder text-center text-lg-start">
+                           <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
                             <button className="btn btnTwo" role="button" tabIndex="0">
                                 Get API Access Token
                             </button>
+                            </a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>

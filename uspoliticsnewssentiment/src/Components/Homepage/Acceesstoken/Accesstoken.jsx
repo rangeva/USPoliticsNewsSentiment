@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 
 
-export default function AccessToken() {
-    const [searchTerm, setSearchTerm] = useState('');
+export default function AccessToken({onSubmit }) {
+    const [accessToken, setAccessToken] = useState('');
+    // const [searchTerm, setSearchTerm] = useState('');
 
-    const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
+    const handleTokenChange = (event) => {
+        setAccessToken(event.target.value);
+      };
 
-    const handleSubmit = (event) => {
+      const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("Searching for:", searchTerm);
-    };
+        console.log("Submitting Access Token:", accessToken);
+        if (onSubmit) {
+            onSubmit(accessToken); // Call the onSubmit function passed via props
+          }
+      };
 
     
     return (
@@ -30,8 +34,8 @@ export default function AccessToken() {
                                         <form onSubmit={handleSubmit}>
                                             <input
                                                 type="text"
-                                                value={searchTerm}
-                                                onChange={handleSearchChange}
+                                                value={accessToken}
+                                                onChange={handleTokenChange}
                                                 placeholder="Enter your Access Token"
                                                 className="accessTokenInput"
                                             />
