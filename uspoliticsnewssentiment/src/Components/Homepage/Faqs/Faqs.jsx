@@ -3,13 +3,13 @@ import React from 'react';
 
 export default function Faqs() {
     return (
-        <div className="container my-5">
-            <section style={{ width: '70%', margin: 'auto' }}>
-                <div>
-                    <h3 className="text-center mb-4 pb-2 text-primary fw-bold">Frequently Asked Questions</h3>
-                    <p className="text-center mb-5">
+        <section className="faq-section bg_gray pt-5">
+            <div className="container pt-2">
+                <div className='main-title'>
+                    <h2 className="text-center heading_two mb-3">Frequently Asked Questions</h2>
+                    <p className="text-center pt-1 mb-0">
                         Webz.io sources and collects data from across the web and transforms it into
-                        <br />
+                        <br className='d-none d-lg-block'></br>
                         machine-ready feeds that plug right into any platform.
                     </p>
                 </div>
@@ -93,7 +93,7 @@ export default function Faqs() {
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     );
 }

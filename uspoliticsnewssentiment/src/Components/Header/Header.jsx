@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Webz.Io</Link>
+        <header>
+            <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
+                <div className="container">
+                    <Link className="navbar-brand" to="/">
+                        <img src='/Images/logo.svg' alt='' className="img-fluid" />
+                    </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        <img src='/Images/nav-toggle.svg' alt='' className="img-fluid" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link className="nav-link" to="/">Home</Link>
                             </li>
@@ -28,12 +30,12 @@ export default function Header() {
                                 <Link className="nav-link" to="#">Contact</Link>
                             </li>
                         </ul>
-                        <span className="btn btn-warning" role="button" tabIndex="0">
-                            Get API | Access Token
+                        <span className="btn btnOne" role="button" tabIndex="0">
+                            Get API Access Token
                         </span>
                     </div>
                 </div>
             </nav>
-        </div>
+        </header>
     );
 }

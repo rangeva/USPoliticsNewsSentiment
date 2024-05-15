@@ -7,80 +7,86 @@ import { faFacebookF, faTwitter, faGoogle, faInstagram, faLinkedin, faGithub } f
 export default function Footer() {
     return (
         <div>
-            <footer className="text-center text-lg-start bg-body-tertiary text-muted" style={{ paddingTop: "2rem" }}>
-                <section>
-                    <div className="container text-center text-md-start mt-5">
-                        <div className="row mt-3">
-                            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                <h4 className="text-uppercase fw-bold mb-4">
-                                    <i className="fas fa-gem me-3"></i>Webz.io
-                                </h4>
+            <footer className='pt-4 pt-lg-5'>
+                <section className='text-center text-lg-start'>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12 col-lg-3 col-xl-3">
+                                <Link className="navbar-brand" to="/">
+                                    <img src='/Images/logo-white.svg' alt='' className="img-fluid" />
+                                </Link>
                             </div>
 
-                            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <h6 className="text-uppercase fw-bold mb-4">
+                            <div className="col-md-4 col-lg-3 col-xl-3">
+                                <h6 className="foot-title">
                                     Site Links
                                 </h6>
-                                <p>
-                                    <Link to="/" className="text-reset">Home</Link>
-                                </p>
-                                <p>
-                                    <Link to="#" className="text-reset">How it Works</Link>
-                                </p>
-                                <p>
-                                    <Link to="#" className="text-reset">Access Token</Link>
-                                </p>
-                                <p>
-                                    <Link to="#" className="text-reset">FAQ's</Link>
-                                </p>
-                                <p>
-                                    <Link to="#" className="text-reset">Contact</Link>
-                                </p>
+                                <ul className='list-inline mb-lg-0'>
+                                    <li>
+                                        <Link to="/" className="text-reset">Home</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#" className="text-reset">How it Works</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#" className="text-reset">Access Token</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#" className="text-reset">FAQ's</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#" className="text-reset">Contact</Link>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <h6 className="text-uppercase fw-bold mb-4">
+                            <div className="col-md-4 col-lg-3 col-xl-3">
+                                <h6 className="foot-title">
                                     Others
                                 </h6>
-                                <p>
-                                    <Link to="#" className="text-reset">Terms of Services</Link>
-                                </p>
-                                <p>
-                                    <Link to="#" className="text-reset">Privacy Policy</Link>
-                                </p>
-                                <p>
-                                    <Link to="#" className="text-reset">News API</Link>
-                                </p>
+                                <ul className='list-inline mb-lg-0'>
+                                    <li>
+                                        <Link to="#" className="text-reset">Terms of Services</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#" className="text-reset">Privacy Policy</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#" className="text-reset">News API</Link>
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                                <h6 className="text-uppercase fw-bold mb-4">Social Media</h6>
-                                <div>
-                                    <a href="https://www.facebook.com/your-page" className="me-4 text-reset">
-                                        <FontAwesomeIcon icon={faFacebookF} />
-                                    </a>
-                                    <a href="https://www.twitter.com/your-profile" className="me-4 text-reset">
-                                        <FontAwesomeIcon icon={faTwitter} />
-                                    </a>
-                                    <a href="https://www.google.com" className="me-4 text-reset">
-                                        <FontAwesomeIcon icon={faGoogle} />
-                                    </a>
-                                    <a href="https://www.instagram.com/your-profile" className="me-4 text-reset">
-                                        <FontAwesomeIcon icon={faInstagram} />
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/your-profile" className="me-4 text-reset">
-                                        <FontAwesomeIcon icon={faLinkedin} />
-                                    </a>
-                                    <a href="https://www.github.com/your-profile" className="me-4 text-reset">
-                                        <FontAwesomeIcon icon={faGithub} />
-                                    </a>
-                                </div>
+                            <div className="col-md-4 col-lg-3 col-xl-3">
+                                <h6 className="foot-title">Social Media</h6>
+                                <ul className='list-inline social-icon mb-lg-0'>
+                                    <li>                                        
+                                        <a href="https://www.facebook.com/your-page">
+                                            <img src='/Images/telegram-icon.svg' alt='' className="img-fluid" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com/your-profile">
+                                            <img src='/Images/x-icon.svg' alt='' className="img-fluid" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.google.com">
+                                            <img src='/Images/discord-bot.svg' alt='' className="img-fluid" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/your-profile">
+                                            <img src='/Images/web.svg' alt='' className="img-fluid" />
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </section>
-                <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
-                    © 2024 by Webz.io, All Right Reserved.
+                <div className="text-center copyright-footer">
+                    © 2024 by Webz.io, All Rights Reserved.
                 </div>
             </footer>
         </div>

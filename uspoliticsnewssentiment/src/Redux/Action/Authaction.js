@@ -6,7 +6,7 @@ const BACKEND_URL = process.env.APP_BASE_URL;
 const Token = process.env.Api_Token;
 
 // ArticlesNews
-export const ArticledisplayAction = (name, token = 'db458c9d-4ffc-4c44-b0b8-0cb0821aba84',sort = 'desc', orderField = 'published') => async (dispatch) => {
+export const ArticledisplayAction = (name, token = '35032520-0852-4aae-ad57-572608440395',sort = 'desc', orderField = 'published') => async (dispatch) => {
     try {
         const config = {
             headers: {
@@ -18,7 +18,9 @@ export const ArticledisplayAction = (name, token = 'db458c9d-4ffc-4c44-b0b8-0cb0
         dispatch(ArticleSlice(positiveResponse.data));
 
         const negativeResponse = await axios.get(`https://api.webz.io/newsApiLite?token=${token}&q=sentiment:negative thread.title:${name} election`, config);
+        // debugger
         dispatch(NegativeArticleSlice(negativeResponse.data));
+        console.log(negativeResponse, 'okkkk3333')
 
     } catch (error) {
         if (error?.response?.data.message) {
