@@ -1,43 +1,80 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { people } from './PeopleData';
 import PieChart from '../../../Piechart/Piechart';
+import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
 
 
-export default function Profile() {
+export default function Profile(name) {
     const { id } = useParams();
+    const dispatch = useDispatch();
     const person = people.find(p => p.id === id);
-    const [positiveAction, setPositiveAction] = useState('');
-    const [negativeAction, setNegativeAction] = useState('');
+    const [order, setOrder] = useState('desc'); 
+    const Token = 'db458c9d-4ffc-4c44-b0b8-0cb0821aba84';
 
-    const handlePositiveChange = (event) => {
-        setPositiveAction(event.target.value);
+    const positivearticle = useSelector((state) => state.news.ArticlesData);
+    const negativearticle = useSelector((state) => state.news.NegativearticleData);
+    const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
+    const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
 
+    useEffect(() => {
+        if (id) {
+            console.log(`Fetching articles for ID: ${id} with order: ${order}`);
+            dispatch(ArticledisplayAction(id, Token, order));
+        }
+    }, [dispatch, id, order]);
+
+    // Show publisg article based on timestamp
+    // useEffect(() => {
+    //     filterArticles(articles.ArticlesData, 'positive');
+    //     filterArticles(articles.NegativearticleData, 'negative');
+    // }, [articles, articleFilter]);
+
+    // const handleFilterChange = (type) => (event) => {
+    //     setArticleFilter(prev => ({ ...prev, [type]: event.target.value }));
+    // };
+    // const filterArticles = (articlesData, type) => {
+    //     let sortedArticles = [...articlesData.posts];
+    //     if (articleFilter[type] === 'mostRecent') {
+    //         sortedArticles.sort((a, b) => new Date(b.published) - new Date(a.published));
+    //     } else if (articleFilter[type] === 'mostPopular') {
+    //         // Define sorting based on another criteria if needed
+    //     }
+    //     setDisplayedArticles(prev => ({ ...prev, [type]: sortedArticles }));
+    // };
+    const handleOrderChange = (event) => {
+        setOrder(event.target.value);
+        console.log(`Order changed to: ${event.target.value}`);
     };
 
-    const handleNegativeChange = (event) => {
-        setNegativeAction(event.target.value);
-
-    };
-
+    
     if (!person) return <div>Profile not found.</div>;
+    // const { positive, negative } = person.articles;
 
-    const { positive, negative } = person.articles;
+    // Pagination handler
+    const handlePageChange = () => {
+        const positiveNextUrl = positivearticle.next;
+        const negativeNextUrl = negativearticle.next;
 
-    const handlePageChange = (pageNumber) => {
+        if (positiveNextUrl && negativeNextUrl) {
+            dispatch(NexpaginationAction(positiveNextUrl, negativeNextUrl));
+        } else {
+            console.error("Pagination URLs missing for positive or negative articles");
+        }
+    };
 
-    }
 
     return (
         <section style={{ paddingTop: "1rem" }}>
             <div>
-                <span >
-                    <Link to="#" style={{ color: 'orange' }}>
+                <span>
+                    <Link to="/" style={{ color: 'orange' }}>
                         Back to Candidate Selection
                     </Link>
                 </span>
@@ -106,7 +143,8 @@ export default function Profile() {
                             </div>
                         </div>
                         <div className="right-column">
-                            <PieChart articles={person.articles} context="profile" />
+                            {/* <PieChart articles={person.articles} context="profile" /> */}
+                            <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} />
                         </div>
                     </div>
                 </section>
@@ -114,55 +152,54 @@ export default function Profile() {
 
                 <div className="articles-container">
                     <div className="article-section">
-                        <h3>Positive Articles
-                            <select onChange={handlePositiveChange} value={positiveAction}>
-                                <option value="all">All</option>
-                                <option value="mostRecent">Most Recent</option>
-                                <option value="mostPopular"> Show Latest</option>
+                        <h4> {totalPositiveCount} Positive Articles
+                            <select onChange={handleOrderChange} value={order}>
+                                {/* <option value="desc">All</option> */}
+                                <option value="desc">Latest</option>
+                                <option value="asc">Oldest </option>
                             </select>
-                        </h3>
-                        {positive.map((article, index) => (
+                        </h4>
+                        {positivearticle && positivearticle?.posts?.map((article, index) => (
                             <div key={index} className="article-card">
-                                <img src={article.image} alt={article.title} />
+                                <img src={article.thread.main_image} alt={article.title} />
                                 <div className="article-info">
                                     <button className="btn btn-success">Article</button>
                                     <div className="author-date">
                                         <p>Posted by {article.author}</p>
-                                        <p>{article.dateTime}</p>
+                                        <p>{article.published}</p>
                                     </div>
                                 </div>
                                 <h4>{article.title}</h4>
-                                <p>{article.description}</p>
-                                <Link to="#">
+                                <p>{article.text}</p>
+                                <a href={article.url} target='blank'>
                                     <span>View Original Article</span>
-                                </Link>
+                                </a>
                             </div>
                         ))}
                     </div>
-
                     <div className="article-section" >
-                        <h3>Negative Articles
-                            <select onChange={handleNegativeChange} value={negativeAction} >
-                                <option value="all">All</option>
-                                <option value="mostRecent">Most Recent</option>
-                                <option value="mostPopular"> Show Latest</option>
+                        <h4> {totalNegativeCount}  Negative Articles
+                            <select onChange={handleOrderChange} value={order} >
+                                {/* <option value="desc">All</option> */}
+                                <option value="desc">Latest</option>
+                                <option value="asc"> Oldest </option>
                             </select>
-                        </h3>
-                        {negative.map((article, index) => (
+                        </h4>
+                        {negativearticle && negativearticle?.posts?.map((article, index) => (
                             <div key={index} className="article-card">
-                                <img src={article.image} alt={article.title} />
+                                <img src={article.thread.main_image} alt={article.title} />
                                 <div className="article-info">
                                     <button className="btn btn-danger">Article</button>
                                     <div className="author-date">
                                         <p>Posted by {article.author}</p>
-                                        <p>{article.dateTime}</p>
+                                        <p>{article.published}</p>
                                     </div>
                                 </div>
                                 <h4>{article.title}</h4>
-                                <p>{article.description}</p>
-                                <Link to="#">
+                                <p>{article.text}</p>
+                                <a href={article.url} target='blank'>
                                     <span>View Original Article</span>
-                                </Link>
+                                </a>
                             </div>
                         ))}
                     </div>
@@ -173,29 +210,12 @@ export default function Profile() {
                 <nav aria-label="Page navigation example">
                     <ul className="pagination">
                         <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => handlePageChange('prev')}>
+                            <a className="page-link" href="#">
                                 Previous
                             </a>
                         </li>
                         <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => handlePageChange(1)}>
-                                1
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => handlePageChange(2)}>
-                                2
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => handlePageChange(3)}>
-                                3
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#" onClick={() => handlePageChange('next')}>
-                                Next
-                            </a>
+                            <a className="page-link" onClick={handlePageChange}> Next </a>
                         </li>
                     </ul>
                 </nav>
