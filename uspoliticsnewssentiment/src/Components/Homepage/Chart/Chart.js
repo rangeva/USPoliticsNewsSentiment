@@ -9,7 +9,7 @@ export default function Chart() {
     const dispatch = useDispatch();
     const pietotalPositiveCount = useSelector((state) => state.news.pietotalPositiveCount);
     const pietotalNegativeCount = useSelector((state) => state.news.pietotalNegativeCount);
-    console.log(pietotalPositiveCount,pietotalNegativeCount,"hhhhhhhhhhh")
+    // console.log(pietotalPositiveCount,pietotalNegativeCount,"hhhhhhhhhhh")
 
     useEffect(() => {
         dispatch(PietotalresultAction());
@@ -32,9 +32,12 @@ export default function Chart() {
                 </div>
 
                 <div className="buttons-container">
-                    <span className="btn btn-warning" role="button" tabIndex="0">
+                    {/* <span className="btn btn-warning" role="button" tabIndex="0">
                         Get API | Access Token
-                    </span>
+                    </span> */}
+                     <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
+                            <button className="btn btn-warning" >  Get API | Access Token</button>
+                        </a>
                 </div>
             </div>
         </div>

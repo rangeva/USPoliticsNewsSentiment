@@ -25,13 +25,13 @@ export default function Footer() {
                                     <Link to="/" className="text-reset">Home</Link>
                                 </p>
                                 <p>
-                                    <Link to="#" className="text-reset">How it Works</Link>
+                                    <Link to="/howitworks" className="text-reset">How it Works</Link>
                                 </p>
                                 <p>
-                                    <Link to="#" className="text-reset">Access Token</Link>
+                                    <Link to="/accesstoken" className="text-reset">Access Token</Link>
                                 </p>
                                 <p>
-                                    <Link to="#" className="text-reset">FAQ's</Link>
+                                    <Link to="/faq" className="text-reset">FAQ's</Link>
                                 </p>
                                 <p>
                                     <Link to="#" className="text-reset">Contact</Link>

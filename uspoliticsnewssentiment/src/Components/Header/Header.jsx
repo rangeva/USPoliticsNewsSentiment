@@ -28,9 +28,12 @@ export default function Header() {
                                 <Link className="nav-link" to="#">Contact</Link>
                             </li>
                         </ul>
-                        <span className="btn btn-warning" role="button" tabIndex="0">
+                        {/* <span className="btn btn-warning" role="button" tabIndex="0">
                             Get API | Access Token
-                        </span>
+                        </span> */}
+                        <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
+                            <button className="btn btn-warning" >  Get API | Access Token</button>
+                        </a>
                     </div>
                 </div>
             </nav>
