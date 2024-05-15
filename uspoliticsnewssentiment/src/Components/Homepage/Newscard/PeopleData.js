@@ -4,7 +4,7 @@ export const people = [
     name: 'Donald Trump',
     title: 'The Republicans',
     description: 'Donald John Trump was born on June 14, 1946, in Queens, New York City, to Fred and Mary Anne Trump. He grew up in Queens and attended the Kew-Forest School before transferring to the New York Military Academy at the age of 13.',
-    image: '/Images/Group 96.png',
+    image: '/Images/trump.png',
     about: 'Former President Trump was the first candidate to declare his intent to run for the GOP nomination in 2024. He also became the first former president to face any kind of criminal charges after being indicted by a Manhattan grand jury in a case related to a payoff to a porn star. He now faces federal criminal charges, too, related to his alleged mishandling of classified documents that were discovered at his Mar-a-Lago resort. (Trump has denied wrongdoing in both cases.)',
 
     campaignPosition: [
@@ -27,14 +27,14 @@ export const people = [
         {
           title: "Global Impact :World Leaders React to us Election Outcomes",
           description: "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-          image: "/Images/Group 96.png ",
+          image: "/Images/trump.png ",
           author: "Admin",
           dateTime: "17 Apr, 2024"
         },
         {
           title: "Global Impact :World Leaders React to us Election Outcomes",
           description: "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-          image: "/Images/Group 96.png ",
+          image: "/Images/trump.png ",
           author: "Admin",
           dateTime: "17 Apr, 2024"
         },
@@ -66,7 +66,7 @@ export const people = [
     name: 'Joe Biden',
     title: 'The Democrats',
     description: 'Joe Biden was born on June 14, 1946, in Queens, New York City, to Fred and Mary Anne Trump. He grew up in Queens and attended the Kew-Forest School before transferring to the New York Military Academy at the age of 17.',
-    image: '/Images/Rectangle 32.png',
+    image: '/Images/joe-biden.png',
     about: 'Eget orci dui gravida orci pellentesque ultricies praesent. Vel ipsum porttitor eu nisl iaculis sapien euismod sed. Integer eu nibh senectus faucibus. Non erat vitae feugiat blandit ullamcorper integer et posuere. ',
 
     campaignPosition: [
@@ -106,14 +106,14 @@ export const people = [
         {
           title: "Global Impact :World Leaders React to us Election Outcomes",
           description: "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-          image: "/Images/Group 96.png ",
+          image: "/Images/trump.png ",
           author: "Admin",
           dateTime: "17 Apr, 2024"
         },
         {
           title: "Global Impact :World Leaders React to us Election Outcomes",
           description: "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-          image: "/Images/Group 96.png ",
+          image: "/Images/trump.png ",
           author: "Admin",
           dateTime: "17 Apr, 2024"
         },
