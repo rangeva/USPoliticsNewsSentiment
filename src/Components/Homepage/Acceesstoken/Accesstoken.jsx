@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { verifyAccessToken } from '../../../utils/common.utils';
+import { toast } from 'react-toastify';
+
 
 
 export default function AccessToken({onSubmit }) {
@@ -9,11 +12,15 @@ export default function AccessToken({onSubmit }) {
         setAccessToken(event.target.value);
       };
 
-      const handleSubmit = (event) => {
+      const handleSubmit = async (event) => {
         event.preventDefault();
+      const result = await verifyAccessToken(accessToken)
+
         console.log("Submitting Access Token:", accessToken);
-        if (onSubmit) {
+        if (result?.status==200) {
             onSubmit(accessToken); // Call the onSubmit function passed via props
+          }else{
+            toast.error('Invalid access token !')
           }
       };
 
