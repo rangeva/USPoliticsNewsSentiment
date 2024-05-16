@@ -1,0 +1,243 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center; 
+  padding: 20px;
+  gap: 20px;
+}
+
+.profile-image img {
+  width: 300px; 
+  height: auto;
+  border-radius: 10px; 
+}
+
+.profile-details {
+  flex: 1; 
+  padding: 10px;
+}
+
+.profile-details h1, .profile-details h2, .profile-details p {
+  margin: 10px 0; 
+
+}
+.articles-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.article-section {
+  flex: 1 1 45%; 
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.article-card {
+  margin-bottom: 20px;
+  position: relative;
+  
+}
+
+.author-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+
+.article-card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 8px 16px;
+}
+
+
+
+.profile-container {
+  display: flex;
+  align-items: start; 
+  padding: 20px;
+  gap: 20px;
+}
+
+.profile-image {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px; 
+}
+
+.profile-links h5, .profile-links a {
+  margin: 4px 0;
+}
+
+.social-links {
+  margin-top: 10px; 
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 24px; 
+  color: #333; 
+}
+
+.social-links a:hover {
+  color: #0056b3; 
+}
+
+.profile-details {
+  flex: 1;
+  padding: 10px;
+}
+
+.profile-details h1, .profile-details h2, .profile-details p {
+  margin: 10px 0;
+}
+
+/* CSS for centering the button and setting its color */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.two-column-container {
+  display: flex;
+}
+
+.left-column {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-column {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+}
+.title-containers{
+  align-items: center;
+}
+
+
+.title-container {
+  display: flex;
+  align-items: center; 
+}
+.title-sections{
+  text-align: center;
+}
+
+.emoji {
+  font-size: 24px; 
+  margin-right: 10px; 
+}
+
+.title {
+  margin: 0; /* Remove default margins */
+}
+
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.content {
+  padding: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* HowItWoeks */
+.buttons-container .card-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+  gap: 20px; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.buttons-container .card {
+  flex: 1 1 300px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  border-radius: 8px; 
+}
+
+.buttons-container .card-img-top {
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover; 
+  border-top-left-radius: 8px; 
+  border-top-right-radius: 8px; 
+}
+
+.buttons-container .card-body {
+  padding: 15px; 
+}
+
+
+/* Access Token */
+.accessTokenContainer {
+  margin-top: 2px;
+  text-align: center;
+}
+
+.accessTokenTitleRow {
+  justify-content: center;
+}
+
+.accessTokenTitleCol {
+  margin-bottom: 20px;
+}
+
+.accessTokenInput {
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.accessTokenButton {
+  padding: 10px 15px;
+}
