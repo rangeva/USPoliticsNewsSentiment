@@ -9,21 +9,28 @@ This project is a web application for viewing news regarding US politics. It req
 To run this project locally, follow these steps:
 
 1. Clone the repository:
-  
-   git clone https://github.com/rangeva/USPoliticsNewsSentiment.git
+
+   git clone https://github.com/rangeva/USPoliticsNewsSentiment/tree/workspace/navrinder
 
 
 2. Navigate to the project directory
 
     cd project-directory
 
+
 3. Install dependencies using npm
     npm install
 
 
-    To view the project in a local environment, use the following commands:
+    To view the project in a local environment, use the following commands
 
-4. Start the development server
+ 4.  Adding .env File
+ For configuring environment variables, create a .env file in the root directory of the project and add variable given below
+ 
+REACT_APP_BASE_URL =https://api.webz.io
+
+
+5. Start the development server
     npm start 
 
 Once the server is running, open your web browser and go to http://localhost:3000 
