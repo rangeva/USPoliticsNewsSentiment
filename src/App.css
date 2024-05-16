@@ -633,20 +633,23 @@ section.how-it-works-sections .btn {
   margin-bottom: 20px;
 }
 
-.accessTokenContainer
-
+.accessTokenContainer{
+  margin-top: 2px;
+  text-align: center;
+}
 /* Access Token */
 .blue-card {
   background-color: var(--secondary);
   color: var(--white);
   padding-top: 39px;
-  padding-bottom: 134px;
+  padding-bottom: 150px;
   position: relative;
   border-radius: 20px;
 }
 
 .blue-card h2 {
-  margin-bottom: 17px;
+  margin-bottom: 18px;
+  margin-top: 2px;
 }
 
 .blue-card p {
@@ -723,16 +726,14 @@ section.how-it-works-sections .btn {
   color: var(--secondary);
   font-size: 16px;
   padding: 24px 20px 24px 27px;
+  box-shadow: unset;
+  line-height: 16px;
+  text-shadow: 0 0 var(--secondary);
 }
 
 .faq-section .accordion .accordion-item .accordion-collapse {
   border-top: 1px solid #dee2e6;
 }
-
-.faq-section .accordion .accordion-item h2 button {
-  box-shadow: unset;
-}
-
 /* footer */
 footer {
   background-color: var(--secondary);

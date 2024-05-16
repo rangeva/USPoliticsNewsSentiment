@@ -35,7 +35,7 @@ export default function Header() {
                             </li>
                         </ul>
 
-                        <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
+                        <a className='text-decoration-none' href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
                             <button className="btn btnOne" >  Get API  Access Token</button>
                         </a>
                     </div>

@@ -28,7 +28,7 @@ export default function AccessToken({onSubmit }) {
     return (
         <section className="accessTokenContainer bg_gray p-block">            
             <div className="container p-block p-block-mob">
-                <div className="row justify-content-center blue-card">
+                <div className="row justify-content-center blue-card mx-0">
                     <div className="col-12 text-center">
                         <div className="box_styleOne">
                             <div className="row justify-content-center">

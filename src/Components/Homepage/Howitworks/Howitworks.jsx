@@ -12,7 +12,7 @@ export default function Howitworks() {
                             <h2 className="title-hero-title">How it Works</h2>
                             <h3 className="title-subtitle">Understanding the Process</h3>
                             <p className="title-description">
-                                Webz.io sources and collects data from across the web and transforms it into<br className='d-none d-lg-none'></br>
+                                Webz.io sources and collects data from across the web and transforms it into<br className='d-none d-lg-block'></br>
                                 machine-ready feeds that plug right into any platform.
                             </p>
                         </div>
