@@ -1,19 +1,30 @@
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import PieChart from '../../../Piechart/Piechart';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { PietotalresultAction} from '../../../Redux/Action/Authaction';  
+import { Oval as Loader } from 'react-loader-spinner';
 
 
 export default function Chart() {
     const dispatch = useDispatch();
     const pietotalPositiveCount = useSelector((state) => state.news.pietotalPositiveCount);
     const pietotalNegativeCount = useSelector((state) => state.news.pietotalNegativeCount);
+    const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
-        dispatch(PietotalresultAction());
+        const fetchData = async () => {
+            try {
+                await dispatch(PietotalresultAction());
+                setIsLoading(false);
+            } catch (error) {
+                setIsLoading(false); // Ensure loader is hidden in case of error
+                console.error('Error fetching data:', error);
+            }
+        };
+    
+        fetchData();
     }, [dispatch]);
-
+    
 
 
     return (
@@ -21,7 +32,13 @@ export default function Chart() {
             <div className="container">
                 <div className='row'>
                     <div className="col-lg-6 mb-5 mb-lg-0">
+                    {isLoading ? (
+                         <div className="loader-container">
+                         <Loader type="Oval" color="#00BFFF" height={90} width={90} />
+                     </div>
+                 ) : (
                         <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />
+                    )}
                     </div>
 
                     <div className="col-lg-6 section-title pe-xxl-1">

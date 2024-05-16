@@ -1,11 +1,8 @@
 import axios from "axios";
-import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 import { ArticleSlice, NegativeArticleSlice, PietotalnegativeresultSlice, PietotalpositiveresultSlice, PietotalresultSlice } from "../Slice/Authslice";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-
-
-
 
 // ArticlesNews
 export const ArticledisplayAction = (name, sort = 'desc', orderField = 'published') => async (dispatch) => {
@@ -17,7 +14,6 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
                 'Content-Type': 'application/json',
             },
         }
-
         let retries = 0;
         const maxRetries = 5;
         const baseDelay = 1000; // 1 second
@@ -118,10 +114,7 @@ export const PietotalresultAction = () => async (dispatch) => {
             console.error('Error fetching totalresult articles:', error);
             if (error.response && error.response.status === 401) {
                 console.error('Token is not valid');
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Token is not valid',
-                });
+                toast.error("Token is Not Valid")
             }
         }
     }

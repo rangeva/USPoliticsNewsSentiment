@@ -1747,3 +1747,9 @@ a.atBtn_holder {
   }
 }
 
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure the loader container takes up the full height of its parent */
+}

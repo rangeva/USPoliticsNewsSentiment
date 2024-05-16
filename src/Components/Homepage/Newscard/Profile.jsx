@@ -1,11 +1,11 @@
-import React, { useState, useEffect , useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Oval as Loader } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { people } from './PeopleData';
 import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
@@ -14,22 +14,28 @@ import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action
 export default function Profile(name) {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const articlesSectionRef = useRef(null); 
+    const articlesSectionRef = useRef(null);
     const person = people.find(p => p.id === id);
     const [order, setOrder] = useState('desc');
-    const [token, setToken] = useState(localStorage.getItem('accessToken') || ''); // Retrieve token from localStorage
-    console.log(token, 'Token is in use ')
+    const [token, setToken] = useState(localStorage.getItem('accessToken') || '');
+    const [isLoading, setIsLoading] = useState(true);
+    const [loadingArticles, setLoadingArticles] = useState(false);
+    const [loadingPagination, setLoadingPagination] = useState(false);
 
     const positivearticle = useSelector((state) => state.news.ArticlesData);
     const negativearticle = useSelector((state) => state.news.NegativearticleData);
     const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
     const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
-    // console.log(totalPositiveCount, totalNegativeCount);
+
 
     useEffect(() => {
         if (id && token) {
-            console.log(`Fetching articles for ID: ${id} with order: ${order}`);
-            dispatch(ArticledisplayAction(id, token, order));
+            console.log(`Fetching articles for ID: ${id} with order: ${order}` );
+            dispatch(ArticledisplayAction(id, token, order))
+                .then(() => setIsLoading(false))
+                .catch(() => setIsLoading(false))
+                .then(() => setLoadingArticles(false))
+                .catch(() => setLoadingArticles(false));
         }
     }, [dispatch, id, order, token]);
 
@@ -37,27 +43,35 @@ export default function Profile(name) {
     const handleOrderChange = (event) => {
         const newOrder = event.target.value;
         setOrder(newOrder);
-        console.log(`Order changed to: ${newOrder}`);
     };
 
 
-    // Pagination handler
     const handlePageChange = () => {
+        setLoadingPagination(true);
         const positiveNextUrl = positivearticle.next;
         const negativeNextUrl = negativearticle.next;
 
         if (positiveNextUrl && negativeNextUrl) {
-            dispatch(NexpaginationAction(positiveNextUrl, negativeNextUrl));
-            // Scroll to the articles section
-            if (articlesSectionRef.current) {
-                articlesSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            dispatch(NexpaginationAction(positiveNextUrl, negativeNextUrl))
+                .then(() => {
+                    setLoadingPagination(false);
+                    setLoadingArticles(false);
+                    if (articlesSectionRef.current) {
+                        articlesSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                })
+                .catch(() => {
+                    setLoadingPagination(false);
+                    setLoadingArticles(false);
+                });
         } else {
             console.error("Pagination URLs missing for positive or negative articles");
+            setLoadingPagination(false);
+            setLoadingArticles(false);
         }
     };
 
-   
+
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
@@ -65,7 +79,7 @@ export default function Profile(name) {
     };
 
     if (!person) return <div>Profile not found.</div>;
-  
+
 
 
     return (
@@ -208,7 +222,13 @@ export default function Profile(name) {
                             </div>
                         </div>
                         <div className="col-md-5 col-xl-4 offset-xl-1">
-                            <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} context="profile" />
+                            {isLoading ? (
+                                <div className="loader-container">
+                                    <Loader type="Oval" color="#00BFFF" height={90} width={90} />
+                                </div>
+                            ) : (
+                                <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} context="profile" />
+                            )}
                         </div>
                     </div>
                 </div>
@@ -216,61 +236,67 @@ export default function Profile(name) {
 
             <section className='articles-section bg_gray' ref={articlesSectionRef}>
                 <div className="container">
-                    <div className="row px-1">
-                        <div className="col-md-6">
-                            <div className="positive-article wrapper">
-                                <div className="title-holder">
-                                    <h4>
-                                        <span>{totalPositiveCount}</span>
-                                        Positive Articles
-                                    </h4>
-                                    <select onChange={handleOrderChange} value={order}>
-                                        {/* <option value="desc">All</option> */}
-                                        <option value="desc">Latest</option>
-                                        <option value="asc">Oldest </option>
-                                    </select>
-                                </div>
-                                {positivearticle && positivearticle?.posts?.map((article, index) => (
-                                    <div key={index} className="article-card-holder">
-                                        <div className="ac-img-wrapper">
-                                            <img className='img-fluid w-100' src={article.thread.main_image} alt={article.title} />
-                                        </div>
-                                        <div className="article-body px-md-2">
-                                            <div className="article-info">
-                                                <button className="btn btn-success">Article</button>
-                                                <div className="author-date-holder">
-                                                    <p>Posted by {article.author}</p>
-                                                    <p>{formatDate(article.published)}</p>
-                                                </div>
-                                            </div>
-                                            <h4 className='main-pn-card-title'>{article.title}</h4>
-                                            <p className='discription'>{article.text}</p>
-                                            <a href={article.url} target='blank' className='mt-4 d-block'>
-                                                View Original Article <span><img src="/images/g-arrow.svg" alt="" /></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                    {loadingArticles ? (
+                        <div className="loader-container">
+                            <Loader type="Oval" color="#00BFFF" height={90} width={90} />
                         </div>
-                        <div className="col-md-6" >
-                            <div className="negative-article wrapper">
-                                <div className="title-holder">
-                                    <h4>
-                                        <span>{totalNegativeCount}</span>
-                                        Negative Articles
-                                    </h4>
-                                    <select onChange={handleOrderChange} value={order} >
-                                        {/* <option value="desc">All</option> */}
-                                        <option value="desc">Latest</option>
-                                        <option value="asc"> Oldest </option>
-                                    </select>
+                    ) : (
+                        <div className="row px-1">
+                            <div className="col-md-6">
+                                <div className="positive-article wrapper">
+                                    <div className="title-holder">
+                                        <h4>
+                                            <span>{totalPositiveCount}</span>
+                                            Positive Articles
+                                        </h4>
+                                        <select onChange={handleOrderChange} value={order}>
+                                            {/* <option value="desc">All</option> */}
+                                            <option value="desc">Latest</option>
+                                            <option value="asc">Oldest </option>
+                                        </select>
+                                    </div>
+                                    {positivearticle && positivearticle?.posts?.map((article, index) => (
+                                        <div key={index} className="article-card-holder">
+                                            <div className="ac-img-wrapper">
+                                                <img className='img-fluid w-100' src={article.thread.main_image} alt={article.title} />
+                                            </div>
+                                            <div className="article-body px-md-2">
+                                                <div className="article-info">
+                                                    <button className="btn btn-success">Article</button>
+                                                    <div className="author-date-holder">
+                                                        <p>Posted by {article.author}</p>
+                                                        <p>{formatDate(article.published)}</p>
+                                                    </div>
+                                                </div>
+                                                <h4 className='main-pn-card-title'>{article.title}</h4>
+                                                <p className='discription'>{article.text}</p>
+                                                <a href={article.url} target='blank' className='mt-4 d-block'>
+                                                    View Original Article <span><img src="/images/g-arrow.svg" alt="" /></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
+                            </div>
+                            <div className="col-md-6" >
+                                <div className="negative-article wrapper">
+                                    <div className="title-holder">
+                                        <h4>
+                                            <span>{totalNegativeCount}</span>
+                                            Negative Articles
+                                        </h4>
+                                        <select onChange={handleOrderChange} value={order} >
+                                            {/* <option value="desc">All</option> */}
+                                            <option value="desc">Latest</option>
+                                            <option value="asc"> Oldest </option>
+                                        </select>
+                                    </div>
+
                                     {negativearticle && negativearticle?.posts?.map((article, index) => (
                                         <div key={index} className="article-card-holder">
                                             <div className="ac-img-wrapper">
                                                 <img className='img-fluid w-100' src={article.thread.main_image} alt={article.title} />
-                                            </div>                                            
+                                            </div>
                                             <div className="article-body px-md-2">
                                                 <div className="article-info">
                                                     <button className="btn btn-danger">Article</button>
@@ -281,15 +307,16 @@ export default function Profile(name) {
                                                 </div>
                                                 <h4 className='main-pn-card-title'>{article.title}</h4>
                                                 <p className='discription'>{article.text}</p>
-                                                <a href={article.url} target='blank'  className='mt-4 d-block'>
-                                                View Original Article <span><img src="/images/r-arrow.svg" alt="" /></span>
+                                                <a href={article.url} target='blank' className='mt-4 d-block'>
+                                                    View Original Article <span><img src="/images/r-arrow.svg" alt="" /></span>
                                                 </a>
                                             </div>
                                         </div>
                                     ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </section>
 
