@@ -95,7 +95,7 @@ export default function Profile(name) {
             <section className='profile-section'>
                 <div className="profile-main-content pt-md-2">
                     <div className="container">
-                        <div className="row">
+                        <div className="row px-1">
                             <div className="col-md-5">
                                 <div className="images-container">
                                     <div className="pro-image">
@@ -138,7 +138,7 @@ export default function Profile(name) {
                                     <h3 className='pb-4 color_secondary'>{person.title}</h3>
                                     <h4>About the Candidate</h4>
                                     <p className='bb-1'>{person.about}</p>
-                                    <h4 className='cp-list-title'>Campaign Positions</h4>
+                                    <h4 className='cp-list-title'>Campaign positions</h4>
                                     {/* <p>{person.campaignPosition}</p> */}
                                     <ul className='cp-content pb-4 pb-md-0 mb-0'>
                                         <li>Support legislation that represents a “record investment” in police.</li>
@@ -209,7 +209,7 @@ export default function Profile(name) {
 
             <section className='articles-section bg_gray'>
                 <div className="container">
-                    <div className="row">
+                    <div className="row px-1">
                         <div className="col-md-6">
                             <div className="positive-article wrapper">
                                 <div className="title-holder">
