@@ -403,12 +403,28 @@ h6 {
 .btnOne {
   background-color: var(--primary);
   color: var(--white);
+  transition: 0.3s ease-in-out;  
+  border: 1px solid var(--primary);
 }
-
+.btnOne:hover {  
+  background-color: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+input:focus {
+  border: unset;
+  outline: unset;
+  box-shadow: unset;
+}
 .btnTwo {
   background-color: transparent;
   color: var(--primary);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--primary);  
+  transition: 0.3s ease-in-out;  
+}
+.btnTwo:hover {
+  background-color: var(--primary);
+  color: var(--white);
 }
 
 .section-title h2 {
@@ -1158,7 +1174,47 @@ section.pagination-section {
 .dark-bg{
   display: none;
 }
-
+/* Access Token Modal */
+.accessToken_modal {
+  background-color: var(--colorTwo);
+  padding: 40px 60px;
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+}
+.ReactModal__Overlay {
+  background-color: rgb(0 0 0 / 50%) !important;
+}
+.accessToken_modal h2,
+.accessToken_modal p{
+  text-align: center;
+}
+.accessToken_modal section.accessTokenContainer, 
+.accessToken_modal .p-block-mob {
+  padding: 0;
+}
+a.atBtn_holder {
+  width: fit-content;
+  display: block;
+  margin-top: 90px;
+  margin-inline: auto;
+}
+.accessToken_modal:focus-visible {
+  outline: unset;
+}
+.accessToken_modal .blue-card .searchForm {
+  width: calc(100% - 32px);
+  padding: 16px 11px;
+  bottom: -35px;
+  box-shadow: 0 0 8px #0000001f;
+}
 @media (min-width:1400px) {
   .container {
     max-width: 1204px;
@@ -1652,6 +1708,12 @@ section.pagination-section {
   }
   .articles-section .article-card-holder {
     margin-bottom: 11.02px;
+  }
+  .accessToken_modal {
+    padding: 30px 20px;
+  }
+  a.atBtn_holder {
+    margin-top: 56px;
   }
 }
 

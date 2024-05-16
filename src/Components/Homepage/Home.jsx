@@ -116,6 +116,7 @@ export default function Home() {
       {/* Modal */}
       {!accessToken && (
         <Modal
+          className={'accessToken_modal'}
           isOpen={showModal}
           onRequestClose={toggleModal}
           contentLabel="No Access Token Found"
@@ -124,8 +125,8 @@ export default function Home() {
           <p>Please provide an access token to proceed.</p>
           {error && <p>{error}</p>}
           <Accesstoken onSubmit={handleAccessTokenSubmit} />
-          <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
-            <button>Get Your Token</button>
+          <a className='atBtn_holder' href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
+            <button className='btn btnOne'>Get Your Token</button>
           </a>
         </Modal>
       )}
