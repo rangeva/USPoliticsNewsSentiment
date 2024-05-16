@@ -1,8 +1,11 @@
 
+
 import React, { useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
 
+
 export default function PieChart({ totalPositiveCount, totalNegativeCount,context  }) {
+
     const chartRef = useRef(null);
     const chartInstanceRef = useRef(null);
 

@@ -9,13 +9,24 @@ import { PietotalresultAction} from '../../../Redux/Action/Authaction';
 
 export default function Chart() {
     const dispatch = useDispatch();
-    const pietotalPositiveCount = useSelector((state) => state.news.pietotalPositiveCount);
-    const pietotalNegativeCount = useSelector((state) => state.news.pietotalNegativeCount);
-    // console.log(pietotalPositiveCount,pietotalNegativeCount,"hhhhhhhhhhh")
+    const aggregatedArticles = people.reduce((acc, person) => {
+        if (person.articles.positive) {
+            acc.positive = acc.positive.concat(person.articles.positive);
+        }
+        if (person.articles.negative) {
+            acc.negative = acc.negative.concat(person.articles.negative);
+        }
+        return acc;
+    }, { positive: [], negative: [] });
+
+    const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
+    const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
+    
 
     useEffect(() => {
-        dispatch(PietotalresultAction());
-    }, [dispatch]);
+        dispatch(ArticledisplayAction());
+    }, [dispatch])
+
 
     return (
         <section className='chart-section bg_gray'>
@@ -23,7 +34,7 @@ export default function Chart() {
                 <div className='row'>
                     <div className="col-lg-6 mb-5 mb-lg-0">
                         {/* <PieChart articles={aggregatedArticles} context="home" /> */}
-                         <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />
+                        <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} />
                     </div>
 
                     <div className="col-lg-6 section-title pe-xxl-1">

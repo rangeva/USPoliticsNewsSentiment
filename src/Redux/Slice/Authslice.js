@@ -3,19 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     ArticlesData: [],
     NegativearticleData:[],
+
     totalPositiveCount: 0, 
     totalNegativeCount: 0,
     Pietotalresultdata:[] ,
     pietotalPositiveCount: 0,
     pietotalNegativeCount: 0,
+
     nextPositive: null,
     nextNegative: null,
      loading: false,
     error: null,
    
 }
-
-
 const authSlice = createSlice({
     name: 'news',
     initialState,
@@ -30,6 +30,7 @@ const authSlice = createSlice({
         NegativeArticleSlice: (state, action) => {
             state.NegativearticleData = action.payload;
             state.totalNegativeCount = action.payload.totalResults;
+
             state.nextNegative = action.payload.next;
         },
         PietotalpositiveresultSlice: (state, action) => {
@@ -51,3 +52,4 @@ const authSlice = createSlice({
 
 export const authReducer = authSlice.reducer;
 export const { ArticleSlice, NegativeArticleSlice,PietotalnegativeresultSlice,PietotalpositiveresultSlice,setLoading, setError } = authSlice.actions;
+

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import Swal from 'sweetalert2';
 import { ArticleSlice, NegativeArticleSlice, PietotalnegativeresultSlice, PietotalpositiveresultSlice, PietotalresultSlice } from "../Slice/Authslice";
 
@@ -9,11 +10,13 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
     try {
         const token = localStorage.getItem('accessToken'); // Retrieve token from localStorage
         
+
         const config = {
             headers: {
                 'Content-Type': 'application/json',
             },
         }
+
         const [positiveResponse, negativeResponse] = await Promise.all([
             axios.get(`${BASE_URL}/newsApiLite?token=${token}&q=sentiment:positive thread.title:${name} election`, config),
             axios.get(`${BASE_URL}/newsApiLite?token=${token}&q=sentiment:negative thread.title:${name} election`, config)
@@ -29,24 +32,29 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
                 text: 'You have exceeded the limit of requests. Please try again later.',
             });
         } else if (error?.response?.data.message) {
+
             console.error(error);
         }
     }
 };
 
 
+
 // Paginstaion 
 export const NexpaginationAction = (positiveUrl, negativeUrl) => async (dispatch) => {
     try {
         const token = localStorage.getItem('accessToken'); // Retrieve token from localStorage
+
         const config = {
             headers: {
                 'Content-Type': 'application/json',
             },
         }
         const [positiveResponse, negativeResponse] = await Promise.all([
+
             axios.get(`${BASE_URL}/${positiveUrl}`, config),
             axios.get(`${BASE_URL}/${negativeUrl}`, config)
+
         ]);
 
         dispatch(ArticleSlice(positiveResponse.data));

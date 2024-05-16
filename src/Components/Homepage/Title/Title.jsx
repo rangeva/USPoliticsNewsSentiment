@@ -21,9 +21,12 @@ export default function Title() {
                         {/* <span className="btn btn-warning" role="button" tabIndex="0">
                             Get API | Access Token
                         </span> */}
-                        <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
+                        {/* <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
                             <button className="btn btnOne" tabIndex="0">  Get API Access Token</button>
-                        </a>
+                        </a> */}
+                        <span className="btn btnOne" role="button" tabIndex="0">
+                            Get API Access Token
+                        </span>
                     </div>
                 </div>
             </section>

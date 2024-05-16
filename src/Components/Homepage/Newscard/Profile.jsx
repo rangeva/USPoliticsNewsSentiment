@@ -113,7 +113,7 @@ export default function Profile(name) {
             <section className='profile-section'>
                 <div className="profile-main-content pt-md-2">
                     <div className="container">
-                        <div className="row">
+                        <div className="row px-1">
                             <div className="col-md-5">
                                 <div className="images-container">
                                     <div className="pro-image">
@@ -127,22 +127,22 @@ export default function Profile(name) {
                                             <ul className='list-inline mb-0'>
                                                 <li>
                                                     <Link to={person.socialLinks.facebook}>
-                                                        <FontAwesomeIcon icon={faFacebookF} />
+                                                        <img src="/images/or_facebook.svg" alt="" />
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={person.socialLinks.twitter}>
-                                                        <FontAwesomeIcon icon={faTwitter} />
+                                                        <img src="/images/or_x.svg" alt="" />
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={person.socialLinks.instagram}>
-                                                        <FontAwesomeIcon icon={faInstagram} />
+                                                        <img src="/images/or_instagram.svg" alt="" />
                                                     </Link>
                                                 </li>
                                                 <li>
                                                     <Link to={person.socialLinks.youtube}>
-                                                        <FontAwesomeIcon icon={faYoutube} />
+                                                        <img src="/images/or_youtube.svg" alt="" />
                                                     </Link>
                                                 </li>
                                             </ul>
@@ -156,7 +156,7 @@ export default function Profile(name) {
                                     <h3 className='pb-4 color_secondary'>{person.title}</h3>
                                     <h4>About the Candidate</h4>
                                     <p className='bb-1'>{person.about}</p>
-                                    <h4 className='cp-list-title'>Campaign Positions</h4>
+                                    <h4 className='cp-list-title'>Campaign positions</h4>
                                     {/* <p>{person.campaignPosition}</p> */}
                                     <ul className='cp-content pb-4 pb-md-0 mb-0'>
                                         <li>Support legislation that represents a “record investment” in police.</li>
@@ -227,7 +227,7 @@ export default function Profile(name) {
 
             <section className='articles-section bg_gray'>
                 <div className="container">
-                    <div className="row">
+                    <div className="row px-1">
                         <div className="col-md-6">
                             <div className="positive-article wrapper">
                                 <div className="title-holder">
@@ -277,27 +277,27 @@ export default function Profile(name) {
                                         <option value="asc"> Oldest </option>
                                     </select>
                                 </div>
-                                {negativearticle && negativearticle?.posts?.map((article, index) => (
-                                    <div key={index} className="article-card-holder">
-                                        <div className="ac-img-wrapper">
-                                            <img className='img-fluid w-100' src={article.thread.main_image} alt={article.title} />
-                                        </div>
-                                        <div className="article-body px-md-2">
-                                            <div className="article-info">
-                                                <button className="btn btn-danger">Article</button>
-                                                <div className="author-date-holder">
-                                                    <p>Posted by {article.author}</p>
-                                                    <p>{formatDate(article.published)}</p>
+                                    {negativearticle && negativearticle?.posts?.map((article, index) => (
+                                        <div key={index} className="article-card-holder">
+                                            <div className="ac-img-wrapper">
+                                                <img className='img-fluid w-100' src={article.thread.main_image} alt={article.title} />
+                                            </div>                                            
+                                            <div className="article-body px-md-2">
+                                                <div className="article-info">
+                                                    <button className="btn btn-danger">Article</button>
+                                                    <div className="author-date-holder">
+                                                        <p>Posted by {article.author}</p>
+                                                        <p>{formatDate(article.published)}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <h4 className='main-pn-card-title'>{article.title}</h4>
-                                            <p className='discription'>{article.text}</p>
-                                            <a href={article.url} target='blank' className='mt-4 d-block'>
+                                                <h4 className='main-pn-card-title'>{article.title}</h4>
+                                                <p className='discription'>{article.text}</p>
+                                                <a href={article.url} target='blank'  className='mt-4 d-block'>
                                                 View Original Article <span><img src="/images/r-arrow.svg" alt="" /></span>
-                                            </a>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
                             </div>
                         </div>
                     </div>
@@ -323,7 +323,6 @@ export default function Profile(name) {
         </main>
     );
 }
-
 
 
 
