@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    ArticlesData: [],
+    ArticlesData: [],  
     NegativearticleData:[],
     // Nextpaginationdata:[] ,
     totalPositiveCount: 0, 
