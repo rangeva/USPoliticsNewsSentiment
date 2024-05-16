@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import { people } from './PeopleData';
 
 export default function Newscard() {
-    const [show, setShow] = useState(true);
+    const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
     const handleMouseEnter = () => {
-        setShow(true);
+        setShowModal(true);
     };
 
-    const handleClose = () => {
-        setShow(false);
+    const handleCloseModal = () => {
+        setShowModal(false);
     };
 
     const handleProfileClick = (personId) => {
@@ -32,12 +32,12 @@ export default function Newscard() {
                     ))}
                 </div>
 
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={showModal} onHide={handleCloseModal} onMouseLeave={handleCloseModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>Select Persona</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                            <h4>Pick a candidate to View Latest News</h4>
+                        <h4>Pick a candidate to View Latest News</h4>
                         <div className="row flex-wrap flex-md-nowrap gap-4 m-0">
                             {people.map(person => (
                                 <div key={person.id} className="col-md" onClick={() => handleProfileClick(person.id)} style={{ cursor: 'pointer' }}>

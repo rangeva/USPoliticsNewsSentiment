@@ -1166,6 +1166,7 @@ section.pagination-section ul.pagination a.page-link {
   border: 1px solid #27334026;
   border-radius: 7px;
   color: #27334080;
+  cursor: pointer;
 }
 section.pagination-section {
   padding-bottom: 174px;

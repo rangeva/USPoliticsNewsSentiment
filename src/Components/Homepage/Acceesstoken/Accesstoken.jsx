@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 export default function AccessToken({onSubmit }) {
     const [accessToken, setAccessToken] = useState('');
-    // const [searchTerm, setSearchTerm] = useState('');
+    
 
     const handleTokenChange = (event) => {
         setAccessToken(event.target.value);

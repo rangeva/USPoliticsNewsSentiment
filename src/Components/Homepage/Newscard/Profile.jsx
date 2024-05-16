@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,17 +10,16 @@ import { people } from './PeopleData';
 import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
 
-// const Token = process.env.REACT_APP_API_TOKEN;
-// console.log(Token)
-
 
 export default function Profile(name) {
     const { id } = useParams();
     const dispatch = useDispatch();
+    const articlesSectionRef = useRef(null); 
     const person = people.find(p => p.id === id);
     const [order, setOrder] = useState('desc');
     const [token, setToken] = useState(localStorage.getItem('accessToken') || ''); // Retrieve token from localStorage
-    console.log(token, 'ppp')
+    console.log(token, 'Token is in use ')
+
     const positivearticle = useSelector((state) => state.news.ArticlesData);
     const negativearticle = useSelector((state) => state.news.NegativearticleData);
     const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
@@ -36,8 +35,9 @@ export default function Profile(name) {
 
 
     const handleOrderChange = (event) => {
-        setOrder(event.target.value);
-        console.log(`Order changed to: ${event.target.value}`);
+        const newOrder = event.target.value;
+        setOrder(newOrder);
+        console.log(`Order changed to: ${newOrder}`);
     };
 
 
@@ -48,26 +48,16 @@ export default function Profile(name) {
 
         if (positiveNextUrl && negativeNextUrl) {
             dispatch(NexpaginationAction(positiveNextUrl, negativeNextUrl));
+            // Scroll to the articles section
+            if (articlesSectionRef.current) {
+                articlesSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         } else {
             console.error("Pagination URLs missing for positive or negative articles");
         }
     };
 
-
-    if (!person) return <div>Profile not found.</div>;
-    // const { positive, negative } = person.articles;
-
-    // Pagination handler
-    // const handlePageChange = () => {
-    //     const positiveNextUrl = positivearticle.next;
-    //     const negativeNextUrl = negativearticle.next;
-
-    //     if (positiveNextUrl && negativeNextUrl) {
-    //         dispatch(NexpaginationAction(positiveNextUrl, negativeNextUrl));
-    //     } else {
-    //         console.error("Pagination URLs missing for positive or negative articles");
-    //     }
-    // };
+   
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
@@ -75,7 +65,7 @@ export default function Profile(name) {
     };
 
     if (!person) return <div>Profile not found.</div>;
-    // const { positive, negative } = person.articles;
+  
 
 
     return (
@@ -218,14 +208,13 @@ export default function Profile(name) {
                             </div>
                         </div>
                         <div className="col-md-5 col-xl-4 offset-xl-1">
-                            {/* <PieChart articles={person.articles} context="profile" /> */}
                             <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} context="profile" />
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className='articles-section bg_gray'>
+            <section className='articles-section bg_gray' ref={articlesSectionRef}>
                 <div className="container">
                     <div className="row px-1">
                         <div className="col-md-6">

@@ -3,13 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     ArticlesData: [],
     NegativearticleData:[],
-
     totalPositiveCount: 0, 
     totalNegativeCount: 0,
     Pietotalresultdata:[] ,
     pietotalPositiveCount: 0,
     pietotalNegativeCount: 0,
-
     nextPositive: null,
     nextNegative: null,
      loading: false,

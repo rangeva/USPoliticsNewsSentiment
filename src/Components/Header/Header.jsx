@@ -12,8 +12,8 @@ export default function Header() {
                             <img src='/Images/logo-mob-white.svg' alt='' className="img-fluid dark-bg" />
                         </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                            <img className="nav-toggle img-fluid" src='/Images/nav-toggle.svg' alt=''/>
-                            <img className="nav-close img-fluid" src='/Images/nav_close.svg' alt=''/>
+                            <img className="nav-toggle img-fluid" src='/Images/nav-toggle.svg' alt='' />
+                            <img className="nav-close img-fluid" src='/Images/nav_close.svg' alt='' />
                         </button>
                     </div>
                     <div className="collapse navbar-collapse" id="navbarText">
@@ -35,9 +35,6 @@ export default function Header() {
                             </li>
                         </ul>
 
-                        {/* <span className="btn btn-warning" role="button" tabIndex="0">
-                            Get API | Access Token
-                        </span> */}
                         <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
                             <button className="btn btnOne" >  Get API  Access Token</button>
                         </a>
