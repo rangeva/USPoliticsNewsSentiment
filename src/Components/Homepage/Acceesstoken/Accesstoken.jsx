@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 export default function AccessToken({onSubmit }) {
     const [accessToken, setAccessToken] = useState('');
-    
+    const [loading,setLoading]=useState(false)
 
     const handleTokenChange = (event) => {
         setAccessToken(event.target.value);
@@ -14,14 +14,21 @@ export default function AccessToken({onSubmit }) {
 
       const handleSubmit = async (event) => {
         event.preventDefault();
-      const result = await verifyAccessToken(accessToken)
-
-        console.log("Submitting Access Token:", accessToken);
-        if (result?.status==200) {
-            onSubmit(accessToken); // Call the onSubmit function passed via props
-          }else{
-            toast.error('Invalid access token !')
-          }
+        try {
+            setLoading(true)
+            const result = await verifyAccessToken(accessToken)
+            setLoading(false)
+              console.log("Submitting Access Token:", accessToken);
+              if (result?.status==200) {
+                  onSubmit(accessToken); // Call the onSubmit function passed via props
+                }else{
+                  toast.error('Invalid access token !')
+                }
+        } catch (error) {
+            setLoading(false)
+            
+        }
+       
       };
 
     
@@ -46,7 +53,7 @@ export default function AccessToken({onSubmit }) {
                                                 placeholder="Enter your Access Token"
                                                 className="accessTokenInput"
                                             />
-                                            <button type="submit" className="accessTokenButton btn btn_one">Submit</button>
+                                            <button type="submit" disabled={loading} className="accessTokenButton btn btn_one">Submit</button>
                                         </form>
                                     </div>
                                 </div>
