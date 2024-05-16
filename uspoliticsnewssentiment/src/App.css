@@ -1154,6 +1154,9 @@ section.pagination-section ul.pagination a.page-link {
 section.pagination-section {
   padding-bottom: 174px;
 }
+.dark-bg{
+  display: none;
+}
 @media (min-width:1400px) {
   .container {
     max-width: 1204px;
@@ -1162,6 +1165,52 @@ section.pagination-section {
 }
 
 @media (max-width:991.98px) {
+  .dark-bg,
+  nav.navbar:has([aria-expanded="true"]) .light-bg,
+  .nav-close,
+  header nav.navbar:has([aria-expanded="true"]) .nav-toggle{
+    display: none;
+  }
+  nav.navbar:has([aria-expanded="true"]) .dark-bg,
+  header nav.navbar:has([aria-expanded="true"]) .nav-close,
+  .nav-toggle{
+    display: block;
+  }
+  nav.navbar{
+    transition: 0.3s ease-in-out;
+  }
+  nav.navbar:has([aria-expanded="true"]) {
+    background-color: var(--secondary) !important;
+  }
+  header nav.navbar a.nav-link {
+    color: var(--white);
+    text-align: center;
+    font-size: 16px;
+  }
+  header nav.navbar ul.navbar-nav {
+    margin-top: 36px;
+    gap: 40px;
+    margin-bottom: 45px !important;
+  }
+  nav.navbar .head-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  nav.navbar:has([aria-expanded="true"]) .head-wrapper {
+    width: 113%;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #efefef26;
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+  header .btnOne {
+    margin-inline: auto;
+    display: block;
+    width: fit-content;
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
   .p-block-mob {
     padding-block: 0;
   }
@@ -1363,6 +1412,50 @@ section.pagination-section {
     border-radius: 20px;
     margin-bottom: 25px;
   }
+  .articles-section .wrapper h4.main-pn-card-title {
+    margin-top: 9.97px;
+    font-size: 16.53px;
+    line-height: 20.81px;
+  }
+  .articles-section .article-card-holder p.discription {
+    margin-top: 11.02px;
+    font-size: 11.02px;
+    line-height: 15.43px;
+  }
+  .articles-section .article-card-holder a {
+    margin-top: 15.85px !important;
+    font-size: 11.02px;
+    line-height: 11.02px;
+  }
+  .articles-section .article-card-holder a span {
+    max-width: 15.55px;
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 2.7px;
+  }
+  .article-info button,
+  .article-card-holder .article-info p {
+    font-size: 9.14px;
+    line-height: 9.14px;
+  }
+  .author-date-holder p:first-child::after {
+    line-height: 5px;
+    right: -9px;
+  }
+  .author-date-holder{
+    gap:14.47px;
+  }  
+  .articles-section .article-card-holder .ac-img-wrapper {
+    margin-bottom: 13.77px;
+    max-height:147.38px;
+    height: 100%;
+  }  
+  .articles-section .wrapper h4 {
+    font-size: 13.77px;
+    line-height: 13.77px;
+    margin-bottom: 0;
+    padding-top: 6px;
+  }
 }
 
 @media(max-width: 767.98px) {
@@ -1489,42 +1582,13 @@ section.pagination-section {
   .articles-section .positive-article {
     margin-bottom: 40px;
   }
-  .articles-section .wrapper h4 {
-    font-size: 13.77px;
-    line-height: 13.77px;
-    margin-bottom: 0;
-    padding-top: 6px;
-  }
   .articles-section .wrapper {
     padding: 17px;
   }
   section.pagination-section {
     padding-bottom: 111px;
   }
-  .articles-section .article-card-holder .ac-img-wrapper {
-    margin-bottom: 13.77px;
-    max-height:147.38px;
-  }
-  .articles-section .wrapper h4.main-pn-card-title {
-    margin-top: 9.97px;
-    font-size: 16.53px;
-    line-height: 20.81px;
-  }
-  .articles-section .article-card-holder p.discription {
-    margin-top: 11.02px;
-    font-size: 11.02px;
-    line-height: 15.43px;
-  }
-  .articles-section .article-card-holder a {
-    margin-top: 15.85px !important;
-    font-size: 11.02px;
-    line-height: 11.02px;
-  }
-  .articles-section .article-card-holder a span {
-    max-width: 15.55px;
-    display: inline-block;
-    padding-left: 6.2px;
-  }
+  
   .articles-section .article-card-holder a span img{
     width: 100%;
   }
@@ -1544,6 +1608,18 @@ section.pagination-section {
   }
   .sa-section .title-container {
     margin-top: 0;
+    justify-content: center;
+  }
+  .modal-dialog {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 28px;
+  }
+  .articles-section .wrapper .title-holder {
+    margin-bottom: 21.35px;
+  }
+  .articles-section .article-card-holder {
+    margin-bottom: 11.02px;
   }
 }
 
