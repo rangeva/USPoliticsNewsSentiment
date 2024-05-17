@@ -6,129 +6,83 @@ import Chart from './Chart/Chart';
 import Howitworks from './Howitworks/Howitworks';
 import Accesstoken from './Acceesstoken/Accesstoken'
 import Faqs from './Faqs/Faqs';
-import {verifyAccessToken} from "../../utils/common.utils"
+import { verifyAccessToken } from "../../utils/common.utils"
 
 
-Modal.setAppElement('#root'); // Set app element for accessibility
+Modal.setAppElement('#root');
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export default function Home() {
-  const [showModal, setShowModal] = useState(true);
-  const [accessToken, setAccessToken] = useState('');
-  const [error, setError] = useState('');
 
-  // Load access token from local storage on component mount
-  useEffect(() => {
-    const storedToken = localStorage.getItem('accessToken');
-    if (storedToken) {
-      setAccessToken(storedToken);
-      setShowModal(false);
-    }
-  }, []);
+const Home = () => {
+    const [showModal, setShowModal] = useState(false);
+    const [accessToken, setAccessToken] = useState('');
+    const [error, setError] = useState('');
 
-  // Function to handle access token submission
-  const handleAccessTokenSubmit = async (token) => {
-    setAccessToken(token);
-    localStorage.setItem('accessToken', token);
-    setShowModal(false);
-  };
+    useEffect(() => {
+        const storedToken = localStorage.getItem('accessToken');
+        const tokenSubmitted = localStorage.getItem('tokenSubmitted');
+        if (storedToken && tokenSubmitted) {
+            setShowModal(false);
+            document.body.style.overflow = 'auto'; 
+        } else {
+            setShowModal(true);
+            document.body.style.overflow = 'hidden'; 
+        }
+    }, []);
 
-  // Function to toggle the modal visibility
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+    const checkToken = async (token) => {
+        const isValid = await verifyAccessToken(token);
+        if (isValid.status === 200) {
+            setAccessToken(token);
+            localStorage.setItem('accessToken', token);
+            localStorage.setItem('tokenSubmitted', true);
+            setShowModal(false);
+            document.body.style.overflow = 'auto'; 
+        } else {
+            setError('Stored access token is invalid. Please enter a new one.');
+            setShowModal(true);
+            document.body.style.overflow = 'hidden'; 
+        }
+    };
 
-  return (
-    <div>
-      <Title />
-      <Newscard />
-      <Chart />
-      <Howitworks />
-      {/* Conditionally render the Access Token component */}
-      <Accesstoken  />
-      <Faqs />
-      {/* Modal */}
-      {!accessToken && (
-        <Modal
-          className={'accessToken_modal'}
-          isOpen={showModal}
-          onRequestClose={toggleModal}
-          contentLabel="No Access Token Found"
-        >
-          <h2>No Access Token Found</h2>
-          <p>Please provide an access token to proceed.</p>
-          {error && <p>{error}</p>}
-          <Accesstoken onSubmit={handleAccessTokenSubmit} />
-          <a className='atBtn_holder' href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
-            <button className='btn btnOne'>Get Your Token</button>
-          </a>
-        </Modal>
-      )}
-    </div>
-  );
-}
-// export default function Home() {
-//   const [accessToken, setAccessToken] = useState(localStorage.getItem('accessToken') || '');
-//   const [showModal, setShowModal] = useState(!accessToken); // Show modal only if access token is not present
-//   const [error, setError] = useState('');
+    const handleAccessTokenSubmit = async (token) => {
+        const isValid = await verifyAccessToken(token);
+        if (isValid) {
+            checkToken(token);
+            setError('');
+        } else {
+            setError('Invalid access token. Please try again.');
+        }
+    };
 
-//   useEffect(() => {
-//     // Check if access token is present and valid
-//     if (accessToken) {
-//       verifyAccessToken(accessToken)
-//         .then(result => {
-//           // Access token is valid, show all components
-//           setShowModal(false);
-//         })
-//         .catch(error => {
-//           // Access token is not valid, handle error or show modal
-//           console.error('Error verifying access token:', error);
-//           setShowModal(true);
-//         });
-//     }
-//   }, [accessToken]);
+    return (
+        <div>
+            <Title />
+            <Newscard />
+            <Chart />
+            <Howitworks />
+            <Accesstoken />
+            <Faqs />
+            {showModal && (
+                <Modal
+                    className={'accessToken_modal'}
+                    isOpen={showModal}
+                    onRequestClose={() => setShowModal(true)}
+                    shouldCloseOnOverlayClick={false}
+                    contentLabel="No Access Token Found"
+                >
+                    <h2>No Access Token Found</h2>
+                    <p>Please provide an access token to proceed.</p>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    <Accesstoken onSubmit={handleAccessTokenSubmit} />
+                    <a className='atBtn_holder' href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
+                        <button className='btn btnOne'>Get Your Token</button>
+                    </a>
+                </Modal>
+            )}
+        </div>
+    );
+};
 
-//   // Function to handle access token submission
-//   const handleAccessTokenSubmit = async (token) => {
-//     setAccessToken(token);
-//     localStorage.setItem('accessToken', token);
-//   };
-
-//   // Function to toggle the modal visibility
-//   const toggleModal = () => {
-//     setShowModal(!showModal);
-//   };
-
-//   // Conditionally render based on access token
-//   if (!accessToken || showModal) {
-//     return (
-//       <Modal
-//         className={'accessToken_modal'}
-//         isOpen={showModal}
-//         onRequestClose={toggleModal}
-//         contentLabel="No Access Token Found"
-//       >
-//         <h2>No Access Token Found</h2>
-//         <p>Please provide a valid access token to proceed.</p>
-//         {error && <p>{error}</p>}
-//         <Accesstoken onSubmit={handleAccessTokenSubmit} />
-//         <a className='atBtn_holder' href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
-//           <button className='btn btnOne'>Get Your Token</button>
-//         </a>
-//       </Modal>
-//     );
-//   }
-
-//   // Render components when access token is present and valid
-//   return (
-//     <>
-//       <Title />
-//       <Newscard />
-//       <Chart />
-//       <Howitworks />
-//       <Accesstoken />
-//       <Faqs />
-//     </>
-//   );
-// }
+export default Home;

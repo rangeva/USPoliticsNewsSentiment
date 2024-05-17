@@ -10,7 +10,7 @@ const initialState = {
     pietotalNegativeCount: 0,
     nextPositive: null,
     nextNegative: null,
-     loading: false,
+    loading: false,
     error: null,
    
 }

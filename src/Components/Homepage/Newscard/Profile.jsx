@@ -22,6 +22,7 @@ export default function Profile(name) {
     const [loadingArticles, setLoadingArticles] = useState(false);
     const [loadingPagination, setLoadingPagination] = useState(false);
 
+
     const positivearticle = useSelector((state) => state.news.ArticlesData);
     const negativearticle = useSelector((state) => state.news.NegativearticleData);
     const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
@@ -30,7 +31,7 @@ export default function Profile(name) {
 
     useEffect(() => {
         if (id && token) {
-            console.log(`Fetching articles for ID: ${id} with order: ${order}` );
+            console.log(`Fetching articles for ID: ${id} with order: ${order}`);
             dispatch(ArticledisplayAction(id, token, order))
                 .then(() => setIsLoading(false))
                 .catch(() => setIsLoading(false))
@@ -62,7 +63,7 @@ export default function Profile(name) {
                 })
                 .catch(() => {
                     setLoadingPagination(false);
-                    setLoadingArticles(false);
+                    setLoadingArticles(false)
                 });
         } else {
             console.error("Pagination URLs missing for positive or negative articles");
@@ -236,9 +237,9 @@ export default function Profile(name) {
 
             <section className='articles-section bg_gray' ref={articlesSectionRef}>
                 <div className="container">
-                    {loadingArticles ? (
+                    {loadingPagination ? (
                         <div className="loader-container">
-                            <Loader type="Oval" color="#00BFFF" height={90} width={90} />
+                            <Loader type="Oval" color="#ffffff" height={100} width={100} />
                         </div>
                     ) : (
                         <div className="row px-1">

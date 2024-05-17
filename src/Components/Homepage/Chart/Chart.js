@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PieChart from '../../../Piechart/Piechart';
 import { useDispatch, useSelector } from 'react-redux';
-import { PietotalresultAction} from '../../../Redux/Action/Authaction';  
+import { PietotalresultAction } from '../../../Redux/Action/Authaction';
 import { Oval as Loader } from 'react-loader-spinner';
 
 
@@ -9,36 +9,37 @@ export default function Chart() {
     const dispatch = useDispatch();
     const pietotalPositiveCount = useSelector((state) => state.news.pietotalPositiveCount);
     const pietotalNegativeCount = useSelector((state) => state.news.pietotalNegativeCount);
-    const [isLoading, setIsLoading] = useState(true); 
+    const [isLoading, setIsLoading] = useState(true);
+    const [tokenSubmitted, setTokenSubmitted] = useState(localStorage.getItem('tokenSubmitted'));
+
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await dispatch(PietotalresultAction());
-                setIsLoading(false);
-            } catch (error) {
-                setIsLoading(false); // Ensure loader is hidden in case of error
-                console.error('Error fetching data:', error);
-            }
-        };
-    
-        fetchData();
-    }, [dispatch]);
-    
+        if (tokenSubmitted) {
+            const fetchData = async () => {
+                try {
+                    await dispatch(PietotalresultAction());
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                } finally {
+                    setIsLoading(false);
+                }
+            };
 
-
+            fetchData();
+        }
+    }, [dispatch, tokenSubmitted]);
     return (
         <section className='chart-section bg_gray'>
             <div className="container">
                 <div className='row'>
                     <div className="col-lg-6 mb-5 mb-lg-0">
-                    {isLoading ? (
-                         <div className="loader-container">
-                         <Loader type="Oval" color="#00BFFF" height={90} width={90} />
-                     </div>
-                 ) : (
-                        <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />
-                    )}
+                        {isLoading ? (
+                            <div className="loader-container">
+                                <Loader type="Oval" color="#00BFFF" height={100} width={100} />
+                            </div>
+                        ) : (
+                            <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />
+                        )}
                     </div>
 
                     <div className="col-lg-6 section-title pe-xxl-1">
@@ -51,10 +52,10 @@ export default function Chart() {
                         </div>
 
                         <div className="buttons-holder text-center text-lg-start">
-                           <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
-                            <button className="btn btnTwo" role="button" tabIndex="0">
-                                Get API Access Token
-                            </button>
+                            <a href="https://webz.io/products/news-api#lite" target="_blank" rel="noopener noreferrer">
+                                <button className="btn btnTwo" role="button" tabIndex="0">
+                                    Get API Access Token
+                                </button>
                             </a>
                         </div>
                     </div>

@@ -1751,5 +1751,11 @@ a.atBtn_holder {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Ensure the loader container takes up the full height of its parent */
+  height: 100%; 
+  color: #41D77D;
+}
+
+/* backscren hiden  */
+.no-scroll {
+  overflow:hidden;
 }

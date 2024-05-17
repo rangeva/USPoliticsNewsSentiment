@@ -3,7 +3,6 @@ import { verifyAccessToken } from '../../../utils/common.utils';
 import { toast } from 'react-toastify';
 
 
-
 export default function AccessToken({onSubmit }) {
     const [accessToken, setAccessToken] = useState('');
     const [loading,setLoading]=useState(false)
@@ -12,25 +11,24 @@ export default function AccessToken({onSubmit }) {
         setAccessToken(event.target.value);
       };
 
-      const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            setLoading(true)
-            const result = await verifyAccessToken(accessToken)
-            setLoading(false)
-              console.log("Submitting Access Token:", accessToken);
-              if (result?.status==200) {
-                  onSubmit(accessToken); // Call the onSubmit function passed via props
-                }else{
-                  toast.error('Invalid access token !')
-                }
+            setLoading(true);
+            const result = await verifyAccessToken(accessToken);
+            setLoading(false);
+            console.log("Submitting Access Token:", accessToken);
+            if (result) {
+                onSubmit(accessToken); 
+            } else {
+                toast.error('Invalid access token!');
+            }
         } catch (error) {
-            setLoading(false)
-            
+            setLoading(false);
+            console.error("Error verifying access token:", error);
+            toast.error('Error verifying access token. Please try again.');
         }
-       
-      };
-
+    };
     
     return (
         <section className="accessTokenContainer bg_gray p-block">            
