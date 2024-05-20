@@ -1,8 +1,10 @@
 import axios from "axios";
-import { toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast'
 import { ArticleSlice, NegativeArticleSlice, PietotalnegativeresultSlice, PietotalpositiveresultSlice } from "../Slice/Authslice";
+import config from "../../config";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+const BASE_URL = config.REACT_APP_BASE_URL;
 
 
 export const ArticledisplayAction = (name, sort = 'desc', orderField = 'published') => async (dispatch) => {
@@ -36,6 +38,7 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
                         await fetchData(); // Retry the request
                     } else {
                         console.error('Max retries exceeded. Please try again later.');
+                        toast.success('Successfully toasted!')
                     }
                 } else if (error?.response?.data.message) {
                     console.error(error);
@@ -52,7 +55,6 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
 // Paginstaion 
 export const NexpaginationAction = (positiveUrl, negativeUrl) => async (dispatch) => {
     try {
-        // const token = localStorage.getItem('accessToken'); // Retrieve token from localStorage
 
         const config = {
             headers: {

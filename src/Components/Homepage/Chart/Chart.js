@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PieChart from '../../../Piechart/Piechart';
 import { useDispatch, useSelector } from 'react-redux';
 import { PietotalresultAction } from '../../../Redux/Action/Authaction';
-import { Oval as Loader } from 'react-loader-spinner';
+import config from '../../../config.json'; 
 
 
 export default function Chart() {
@@ -28,27 +28,36 @@ export default function Chart() {
             fetchData();
         }
     }, [dispatch, tokenSubmitted]);
+
+    // Generate random numbers for positive and negative counts
+    const generateRandomCounts = () => {
+        const randomPositiveCount = Math.floor(Math.random() * 80);
+        const randomNegativeCount = Math.floor(Math.random() * 100);
+        return { randomPositiveCount, randomNegativeCount };
+    };
+
+   // Conditionally render PieChart or random numbers
+   let chartContent;
+   if (isLoading) {
+       const { randomPositiveCount, randomNegativeCount } = generateRandomCounts();
+       chartContent = <PieChart totalPositiveCount={randomPositiveCount} totalNegativeCount={randomNegativeCount} context="home" />;
+   } else {
+       chartContent = <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />;
+   }
     return (
         <section className='chart-section bg_gray'>
             <div className="container">
                 <div className='row'>
                     <div className="col-lg-6 mb-5 mb-lg-0">
-                        {isLoading ? (
-                            <div className="loader-container">
-                                <Loader type="Oval" color="#00BFFF" height={100} width={100} />
-                            </div>
-                        ) : (
-                            <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" />
-                        )}
+                        {/* <PieChart totalPositiveCount={pietotalPositiveCount} totalNegativeCount={pietotalNegativeCount} context="home" /> */}
+                        {chartContent}
                     </div>
-
                     <div className="col-lg-6 section-title pe-xxl-1">
-                        <h2>Tracking the Pulse: </h2>
-                        <h3>Viewer Sentiment Analysis of the US Election</h3>
+                        <h2>{config.homechart.mainTitle} </h2>
+                        <h3>{config.homechart.subTitle}</h3>
                         <div class="title-description me-xxl-2 text-center text-lg-start">
-                            <p className='mb-3 pb-1'>Webz.io sources and collects data from across the web and transforms it into machine-ready feeds that plug right into any platform. It deploys a wide array of crawlers that run in near real-time, drawing from millions of sources — covering everything from the biggest news sites, to obscure blogs and forums, all the way to the furthest reaches of the dark web.</p>
-
-                            <p>All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data exactly the way they need it, so companies easily turn web data into customer value.</p>
+                            <p className='mb-3 pb-1'>{config.homechart.description1}</p>
+                            <p>{config.homechart.description2}</p>
                         </div>
 
                         <div className="buttons-holder text-center text-lg-start">

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { verifyAccessToken } from '../../../utils/common.utils';
 import { toast } from 'react-toastify';
+import config from '../../../config.json'; 
 
 
 export default function AccessToken({onSubmit }) {
     const [accessToken, setAccessToken] = useState('');
     const [loading,setLoading]=useState(false)
+    
 
     const handleTokenChange = (event) => {
         setAccessToken(event.target.value);
@@ -38,8 +40,8 @@ export default function AccessToken({onSubmit }) {
                         <div className="box_styleOne">
                             <div className="row justify-content-center">
                                 <div className="col-12 col-lg-6 text-center">
-                                    <h2 className="heading_one">Enter Access Token</h2>
-                                    <p className="color_lightGray">Webz.io sources and collects data from across the web and transforms it into machine-ready feeds that plug right into any platform.</p>
+                                    <h2 className="heading_one">{config.accesstoken.heading}</h2>
+                                    <p className="color_lightGray">{config.accesstoken.description}</p>
                                 </div>
                                 <div className="col-12 text-center form-wrapper">
                                     <div className="searchForm">

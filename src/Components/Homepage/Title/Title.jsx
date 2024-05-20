@@ -1,19 +1,26 @@
 import React from 'react';
+import config from '../../../config.json'; 
 
 
 export default function Title() {
+    const { heroTitle, subtitle, mainHeading, description, buttonText, buttonLink } = config.Title;
+    const descriptionParts = description.split('\n');
     return (
         <div>
             <section className="title-sections">
                 <div className="container text-center">
                     <div className="title-row justify-content-center">
                         <div className="title-col">
-                            <h1 className="title-hero-title edge-tag">Battle for the Oval</h1>
-                            <h2 className="title-subtitle">Biden vs. Trump</h2>
-                            <h1 className="title-main-heading edge-tag">Deciding America's Future</h1>
+                            <h1 className="title-hero-title edge-tag">{config.Title.heroTitle}</h1>
+                            <h2 className="title-subtitle">{config.Title.subtitle}</h2>
+                            <h1 className="title-main-heading edge-tag">{config.Title.mainHeading}</h1>
                             <p className="title-description">
-                                Webz.io transforms the web into machine-ready feeds that plug right into any platform. So machines get<br className='d-none d-lg-block'></br>
-                                data just the way they need it — and companies easily turn web data into customer value.
+                            {descriptionParts.map((part, index) => (
+                                    <React.Fragment key={index}>
+                                        {part}
+                                        {index < descriptionParts.length - 1 && <br className='d-none d-lg-block' />}
+                                    </React.Fragment>
+                                ))}
                             </p>
                         </div>
                     </div>

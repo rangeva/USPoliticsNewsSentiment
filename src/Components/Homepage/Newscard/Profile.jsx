@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Oval as Loader } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { people } from './PeopleData';
 import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
+import  { toast,Toaster } from 'react-hot-toast'
+import config from '../../../config';
 
 
 export default function Profile(name) {
@@ -28,6 +27,9 @@ export default function Profile(name) {
     const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount);
     const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount);
 
+    const formattedTotalPositiveCount = new Intl.NumberFormat().format(totalPositiveCount);
+    const formattedTotalNegativeCount = new Intl.NumberFormat().format(totalNegativeCount);
+  
 
     useEffect(() => {
         if (id && token) {
@@ -41,10 +43,10 @@ export default function Profile(name) {
     }, [dispatch, id, order, token]);
 
 
-    const handleOrderChange = (event) => {
-        const newOrder = event.target.value;
-        setOrder(newOrder);
-    };
+    // const handleOrderChange = (event) => {
+    //     const newOrder = event.target.value;
+    //     setOrder(newOrder);
+    // };
 
 
     const handlePageChange = () => {
@@ -80,7 +82,6 @@ export default function Profile(name) {
     };
 
     if (!person) return <div>Profile not found.</div>;
-
 
 
     return (
@@ -229,7 +230,7 @@ export default function Profile(name) {
                                 </div>
                             ) : (
                                 <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} context="profile" />
-                            )}
+                             )} 
                         </div>
                     </div>
                 </div>
@@ -247,14 +248,13 @@ export default function Profile(name) {
                                 <div className="positive-article wrapper">
                                     <div className="title-holder">
                                         <h4>
-                                            <span>{totalPositiveCount}</span>
+                                            <span>{formattedTotalPositiveCount}</span>
                                             Positive Articles
                                         </h4>
-                                        <select onChange={handleOrderChange} value={order}>
-                                            {/* <option value="desc">All</option> */}
-                                            <option value="desc">Latest</option>
-                                            <option value="asc">Oldest </option>
-                                        </select>
+                                        {/* <select onChange={handleOrderChange} value={order}>
+                                                <option value="desc">Latest</option>
+                                                <option value="asc">Oldest </option>
+                                            </select> */}
                                     </div>
                                     {positivearticle && positivearticle?.posts?.map((article, index) => (
                                         <div key={index} className="article-card-holder">
@@ -270,7 +270,7 @@ export default function Profile(name) {
                                                     </div>
                                                 </div>
                                                 <h4 className='main-pn-card-title'>{article.title}</h4>
-                                                <p className='discription'>{article.text}</p>
+                                                {/* <p className='discription'>{article.text}</p> */}
                                                 <a href={article.url} target='blank' className='mt-4 d-block'>
                                                     View Original Article <span><img src="/images/g-arrow.svg" alt="" /></span>
                                                 </a>
@@ -283,14 +283,13 @@ export default function Profile(name) {
                                 <div className="negative-article wrapper">
                                     <div className="title-holder">
                                         <h4>
-                                            <span>{totalNegativeCount}</span>
+                                            <span>{formattedTotalNegativeCount}</span>
                                             Negative Articles
                                         </h4>
-                                        <select onChange={handleOrderChange} value={order} >
-                                            {/* <option value="desc">All</option> */}
+                                        {/* <select onChange={handleOrderChange} value={order} >
                                             <option value="desc">Latest</option>
                                             <option value="asc"> Oldest </option>
-                                        </select>
+                                        </select> */}
                                     </div>
 
                                     {negativearticle && negativearticle?.posts?.map((article, index) => (
@@ -307,7 +306,7 @@ export default function Profile(name) {
                                                     </div>
                                                 </div>
                                                 <h4 className='main-pn-card-title'>{article.title}</h4>
-                                                <p className='discription'>{article.text}</p>
+                                                {/* <p className='discription'>{article.text}</p>/ */}
                                                 <a href={article.url} target='blank' className='mt-4 d-block'>
                                                     View Original Article <span><img src="/images/r-arrow.svg" alt="" /></span>
                                                 </a>

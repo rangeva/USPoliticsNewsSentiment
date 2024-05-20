@@ -7,11 +7,11 @@ import Howitworks from './Howitworks/Howitworks';
 import Accesstoken from './Acceesstoken/Accesstoken'
 import Faqs from './Faqs/Faqs';
 import { verifyAccessToken } from "../../utils/common.utils"
-
+import config from '../../config';
 
 Modal.setAppElement('#root');
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = config.REACT_APP_BASE_URL;
 
 
 const Home = () => {
@@ -72,7 +72,6 @@ const Home = () => {
                     shouldCloseOnOverlayClick={false}
                     contentLabel="No Access Token Found"
                 >
-                    <h2>No Access Token Found</h2>
                     <p>Please provide an access token to proceed.</p>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
                     <Accesstoken onSubmit={handleAccessTokenSubmit} />

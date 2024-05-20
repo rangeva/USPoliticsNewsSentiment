@@ -1,5 +1,7 @@
 import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+import config from "../config";
+
+const BASE_URL = config.REACT_APP_BASE_URL;
 
 export const verifyAccessToken = async (token) => {
     const config = {
