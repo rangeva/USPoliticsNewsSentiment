@@ -22,16 +22,19 @@ To run this project locally, follow these steps:
     npm install
 
 
-    To view the project in a local environment, use the following commands
-
- 4.  Adding .env File
- For configuring environment variables, create a .env file in the root directory of the project and add variable given below
- 
-REACT_APP_BASE_URL =https://api.webz.io
-
-
-5. Start the development server
+4. Start the development server
     npm start 
+
+
+5. Edit the text
+    If you need to edit static data in the project, I have added a config.json file inside the src for that purpose. You can edit the data in it.
+   
+
+6. Config.js file  
+  If there's ever a need to change the base URL in the project, it can be done in the config.js file
+  REACT_APP_BASE_URL =https://api.webz.io
+
+
 
 Once the server is running, open your web browser and go to http://localhost:3000 
 
