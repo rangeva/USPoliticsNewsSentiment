@@ -111,42 +111,10 @@
           "facebook": "https://www.facebook.com/donaldtrump",
           "twitter": "https://www.twitter.com/donaldtrump",
           "instagram": "https://www.instagram.com/donaldtrump"
-        },
-        "articles": {
-          "positive": [
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/trump.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            },
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/trump.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            }
-          ],
-          "negative": [
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/Rectangle 59.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            },
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/Rectangle 59.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            }
-          ]
         }
+       
       },
+      
       {
         "id": "biden",
         "name": "Joe Biden",
@@ -165,41 +133,19 @@
           "facebook": "https://www.facebook.com/joebiden",
           "twitter": "https://www.twitter.com/joebiden",
           "instagram": "https://www.instagram.com/joebiden"
-        },
-        "articles": {
-          "positive": [
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/Rectangle 59.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            },
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/Rectangle 59.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            }
-          ],
-          "negative": [
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/trump.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            },
-            {
-              "title": "Global Impact: World Leaders React to US Election Outcomes",
-              "description": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data ...",
-              "image": "/Images/trump.png",
-              "author": "Admin",
-              "dateTime": "17 Apr, 2024"
-            }
-          ]
         }
-      } 
-    ]
+      }
+    ],
+    "staticContent": {
+      "header": "2024 Presidential Candidates",
+      "description": "Donald Trump is the presumptive Republican presidential nominee who will face President Joe Biden in<br class='d-none d-md-block'></br>November. These were his GOP primary challengers.",
+      "image":"/Images/us-map.svg"
+    },
+    "additionalContent": {
+      "emoji": "/Images/ph_smiley.svg",
+      "title": "Sentiment Analysis",
+      "text": "Webz.io sources and collects data from across the web and transforms it into machine-ready feeds that plug right into any platform. It deploys a wide array of crawlers that run in near real-time, drawing from millions of sources — covering everything from the biggest news sites, to obscure blogs and forums, all the way to the furthest reaches of the dark web.",
+      "text2": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data exactly the way they need it, so companies easily turn web data into customer value."
+    }
+    
 }

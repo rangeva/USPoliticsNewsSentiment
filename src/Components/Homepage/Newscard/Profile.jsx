@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Oval as Loader } from 'react-loader-spinner';
 import { useDispatch, useSelector } from 'react-redux';
-import { people } from './PeopleData';
 import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
-import  { toast,Toaster } from 'react-hot-toast'
-import config from '../../../config';
+import { toast, Toaster } from 'react-hot-toast'
+import config from '../../../config.json';
+
 
 
 export default function Profile(name) {
     const { id } = useParams();
     const dispatch = useDispatch();
     const articlesSectionRef = useRef(null);
+    const { people, staticContent, additionalContent } = config;
     const person = people.find(p => p.id === id);
     const [order, setOrder] = useState('desc');
     const [token, setToken] = useState(localStorage.getItem('accessToken') || '');
@@ -29,11 +30,11 @@ export default function Profile(name) {
 
     const formattedTotalPositiveCount = new Intl.NumberFormat().format(totalPositiveCount);
     const formattedTotalNegativeCount = new Intl.NumberFormat().format(totalNegativeCount);
-  
+
 
     useEffect(() => {
         if (id && token) {
-            console.log(`Fetching articles for ID: ${id} with order: ${order}`);
+            console.log(`Fetching articles with order: ${order}`);
             dispatch(ArticledisplayAction(id, token, order))
                 .then(() => setIsLoading(false))
                 .catch(() => setIsLoading(false))
@@ -43,10 +44,7 @@ export default function Profile(name) {
     }, [dispatch, id, order, token]);
 
 
-    // const handleOrderChange = (event) => {
-    //     const newOrder = event.target.value;
-    //     setOrder(newOrder);
-    // };
+   
 
 
     const handlePageChange = () => {
@@ -68,7 +66,7 @@ export default function Profile(name) {
                     setLoadingArticles(false)
                 });
         } else {
-            console.error("Pagination URLs missing for positive or negative articles");
+            console.error("Error accur from api to  getting  positive or negative articles");
             setLoadingPagination(false);
             setLoadingArticles(false);
         }
@@ -99,15 +97,12 @@ export default function Profile(name) {
                         <div className="container">
                             <div className="row text-center text-md-start">
                                 <div className="col-md-8">
-                                    <h2>2024 Presidential Candidates</h2>
-                                    <p>Donald Trump is the presumptive Republican presidential nominee who will face President Joe Biden in
-                                        <br className='d-none d-md-block'></br>
-                                        November. These were his GOP primary challengers.
-                                    </p>
+                                    <h2>{staticContent.header}</h2>
+                                    <p dangerouslySetInnerHTML={{ __html: staticContent.description }}></p>
                                 </div>
                                 <div className="col-md-4">
                                     <div className="map-img-holder">
-                                        <img className='img-fluid' src="/images/us-map.svg" alt="" />
+                                        <img className='img-fluid' src={staticContent.image} alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -163,12 +158,10 @@ export default function Profile(name) {
                                     <h4>About the Candidate</h4>
                                     <p className='bb-1'>{person.about}</p>
                                     <h4 className='cp-list-title'>Campaign positions</h4>
-                                    {/* <p>{person.campaignPosition}</p> */}
                                     <ul className='cp-content pb-4 pb-md-0 mb-0'>
-                                        <li>Support legislation that represents a “record investment” in police.</li>
-                                        <li>Pardon 'a large portion' of the people convicted of federal offenses for their participation in the Jan. 6, 2021, attack on the U.S. Capitol.</li>
-                                        <li>Sign an executive order instructing federal agencies to 'cease all programs that promote the concept of sex and gender transition at any age'; punish doctors who provide gender-affirming care to minors.</li>
-                                        <li>Get something done on abortion; has declined to specify how many weeks into a pregnancy he would support a ban; has said a federal ban would need to include exceptions for rape, incest, and the life of the mother.</li>
+                                        {person.campaignPosition.map((position, index) => (
+                                            <li key={index}>{position}</li>
+                                        ))}
                                     </ul>
                                 </div>
                                 <div className="profile-links d-block d-md-none">
@@ -212,14 +205,14 @@ export default function Profile(name) {
                         <div className="col-md-7">
                             <div className="main-content">
                                 <div className="title-container mb-4">
-                                    <span className="emoji"><img src="/images/ph_smiley.svg" alt="" /></span>
-                                    <h2 className="title">Sentiment Analysis</h2>
+                                    <span className="emoji"><img src={additionalContent.emoji} alt="" /></span>
+                                    <h2 className="title">{additionalContent.title}</h2>
                                 </div>
                                 <p className='text-center text-md-start'>
-                                    Webz.io sources and collects data from across the web and transforms it into machine-ready feeds that plug right into any platform.
-                                    It deploys a wide array of crawlers that run in near real-time, drawing from millions of sources — covering everything from the biggest news sites, to obscure blogs and forums, all the way to the furthest reaches of the dark web.
-                                    <br /><br />
-                                    All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data exactly the way they need it, so companies easily turn web data into customer value.
+                                            {additionalContent.text}
+                                </p>
+                                <p className='text-center text-md-start'>
+                                {additionalContent.text2}
                                 </p>
                             </div>
                         </div>
@@ -230,7 +223,7 @@ export default function Profile(name) {
                                 </div>
                             ) : (
                                 <PieChart totalPositiveCount={totalPositiveCount} totalNegativeCount={totalNegativeCount} context="profile" />
-                             )} 
+                            )}
                         </div>
                     </div>
                 </div>
@@ -251,10 +244,6 @@ export default function Profile(name) {
                                             <span>{formattedTotalPositiveCount}</span>
                                             Positive Articles
                                         </h4>
-                                        {/* <select onChange={handleOrderChange} value={order}>
-                                                <option value="desc">Latest</option>
-                                                <option value="asc">Oldest </option>
-                                            </select> */}
                                     </div>
                                     {positivearticle && positivearticle?.posts?.map((article, index) => (
                                         <div key={index} className="article-card-holder">
@@ -286,10 +275,6 @@ export default function Profile(name) {
                                             <span>{formattedTotalNegativeCount}</span>
                                             Negative Articles
                                         </h4>
-                                        {/* <select onChange={handleOrderChange} value={order} >
-                                            <option value="desc">Latest</option>
-                                            <option value="asc"> Oldest </option>
-                                        </select> */}
                                     </div>
 
                                     {negativearticle && negativearticle?.posts?.map((article, index) => (

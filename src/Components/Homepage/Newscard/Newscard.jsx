@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-import { people } from './PeopleData';
+import config from '../../../config.json';
 
 export default function Newscard() {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
+    const people = config.people;
+   
 
     const handleMouseEnter = () => {
         setShowModal(true);
@@ -23,7 +25,7 @@ export default function Newscard() {
         <div className="newsCard-section">
             <div className='container mt-lg-4'>
                 <div className="row g-4 justify-content-center">
-                    {people.map(person => (
+                    {people && people.map(person => (
                         <div key={person.id} className="col-lg-6 mt-0">
                             <div className="card" onMouseEnter={handleMouseEnter}>
                                 <img src={person.image} className="card-img-top" alt={person.name} />
@@ -39,7 +41,7 @@ export default function Newscard() {
                     <Modal.Body>
                         <h4>Pick a candidate to View Latest News</h4>
                         <div className="row flex-wrap flex-md-nowrap gap-4 m-0">
-                            {people.map(person => (
+                            {people && people.map(person => (
                                 <div key={person.id} className="col-md" onClick={() => handleProfileClick(person.id)} style={{ cursor: 'pointer' }}>
                                     <div className="modal-img-holder">
                                         <img src={person.secondImage} alt={person.name} className="img-fluid w-100" />
