@@ -26,11 +26,11 @@ To run this project locally, follow these steps:
     npm start 
 
 
-5. Edit the text
+5. Edit the text :
     If you need to edit static data in the project, I have added a config.json file inside the src for that purpose. You can edit the data in it.
    
 
-6. Config.js file  
+6. Config.js file : 
   If there's ever a need to change the base URL in the project, it can be done in the config.js file
   REACT_APP_BASE_URL =https://api.webz.io
 
