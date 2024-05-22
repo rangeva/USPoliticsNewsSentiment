@@ -17,18 +17,18 @@ export default function AccessToken({onSubmit }) {
         event.preventDefault();
         try {
             setLoading(true);
-            const result = await verifyAccessToken(accessToken);
-            setLoading(false);
-            console.log("Submitting Access Token:", accessToken);
+            const result = await verifyAccessToken(accessToken);  
+           
             if (result) {
                 onSubmit(accessToken); 
             } else {
                 toast.error('Invalid access token!');
             }
         } catch (error) {
-            setLoading(false);
             console.error("Error verifying access token:", error);
             toast.error('Error verifying access token. Please try again.');
+        }finally {
+            setLoading(false); 
         }
     };
     
@@ -53,7 +53,7 @@ export default function AccessToken({onSubmit }) {
                                                 placeholder="Enter your Access Token"
                                                 className="accessTokenInput"
                                             />
-                                            <button type="submit" disabled={loading} className="accessTokenButton btn btn_one">Submit</button>
+                                            <button type="submit" disabled={loading} className="accessTokenButton btn btn_one"> {loading ? 'Loading...' : 'Submit'}</button>
                                         </form>
                                     </div>
                                 </div>

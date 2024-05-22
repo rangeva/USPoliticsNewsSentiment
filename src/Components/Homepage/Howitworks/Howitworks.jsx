@@ -1,5 +1,4 @@
 import React from 'react';
-// import cardData from "./howitwoekdata"
 import config from '../../../config.json';
 
 

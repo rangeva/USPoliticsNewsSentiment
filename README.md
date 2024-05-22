@@ -32,7 +32,7 @@ To run this project locally, follow these steps:
 
 6. Config.js file : 
   If there's ever a need to change the base URL in the project, it can be done in the config.js file
-  REACT_APP_BASE_URL =https://api.webz.io
+    REACT_APP_BASE_URL =https://api.webz.io
 
 
 

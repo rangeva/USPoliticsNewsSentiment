@@ -1757,5 +1757,23 @@ a.atBtn_holder {
 
 /* backscren hiden  */
 .no-scroll {
-  overflow:hidden;
+  /* overflow:hidden; */
+  overflow: auto;
 }
+
+.close-button {
+  position: absolute;
+  top: 10px; /* Adjust top position as needed */
+  right: 10px; /* Adjust right position as needed */
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #141313;
+}
+
+.close-button:hover {
+  color: rgb(238, 42, 42);
+  opacity: 0.5;
+}
+

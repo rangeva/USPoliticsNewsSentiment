@@ -14,8 +14,14 @@ export const verifyAccessToken = async (token) => {
         return result
         return true;
     } catch (error) {
-        console.log(error, 'sjfkjskfjskfjsksjfksjkf')
-        return false; 
+        console.log('Verification failed:', error)
+        if (error.response && error.response.status === 429) {
+            await new Promise(resolve => setTimeout(resolve, 5000)); 
+            return verifyAccessToken(token); 
+        } else {
+            console.error(error);
+            return false; 
+        }
     }
 
 }
