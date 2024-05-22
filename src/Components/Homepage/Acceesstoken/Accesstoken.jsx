@@ -15,6 +15,12 @@ export default function AccessToken({onSubmit }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        // Check if access token is available
+        if (!accessToken) {
+            // If token is null or undefined, display error message
+            toast.error('Access token is missing!');
+            return;
+        }
         try {
             setLoading(true);
             const result = await verifyAccessToken(accessToken);  
@@ -25,8 +31,7 @@ export default function AccessToken({onSubmit }) {
                 toast.error('Invalid access token!');
             }
         } catch (error) {
-            console.error("Error verifying access token:", error);
-            toast.error('Error verifying access token. Please try again.');
+            console.error("Error verifying access token:");
         }finally {
             setLoading(false); 
         }

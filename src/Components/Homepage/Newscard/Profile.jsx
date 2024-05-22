@@ -7,7 +7,6 @@ import AccessToken from '../Acceesstoken/Accesstoken';
 import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
 import { verifyAccessToken } from '../../../utils/common.utils';
-import { toast, Toaster } from 'react-hot-toast';
 import config from '../../../config.json';
 
 Modal.setAppElement('#root');
@@ -103,7 +102,7 @@ export default function Profile() {
                     setLoadingArticles(false);
                 });
         } else {
-            console.error("Error accur from api to getting positive or negative articles");
+            console.error("Error accur from server to getting articles");
             setLoadingPagination(false);
             setLoadingArticles(false);
         }

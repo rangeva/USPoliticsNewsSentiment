@@ -1,11 +1,15 @@
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast'
+import  { toast } from 'react-hot-toast'
 import { ArticleSlice, NegativeArticleSlice, PietotalnegativeresultSlice, PietotalpositiveresultSlice } from "../Slice/Authslice";
 import config from "../../config";
 
 
 const BASE_URL = config.REACT_APP_BASE_URL;
 
+// Articles news
+
+const articleCache = {};
+const requestQueue = {}; 
 
 export const ArticledisplayAction = (name, sort = 'desc', orderField = 'published') => async (dispatch) => {
     try {
@@ -15,10 +19,6 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
                 'Content-Type': 'application/json',
             },
         };
-
-        let retries = 0;
-        const maxRetries = 5;
-        const baseDelay = 1000; // 1 second
 
         const fetchData = async () => {
             try {
@@ -30,19 +30,29 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
                 if (positiveResponse.data && negativeResponse.data) {
                     dispatch(ArticleSlice(positiveResponse.data));
                     dispatch(NegativeArticleSlice(negativeResponse.data));
+                    // Cache the data
+                    articleCache[name] = {
+                        positive: positiveResponse.data,
+                        negative: negativeResponse.data
+                    };
                 } else {
                     console.error('Data not found in response.');
                 }
             } catch (error) {
-                if (error.response && error.response.status === 429) {
-                    await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second
-                    await fetchData(); 
-                } else {
-                    console.error('Error fetching articles:', error);
-                }
+                console.error('Error fetching articles:', error);
+            } finally {
+                delete requestQueue[name];
             }
         };
-        await fetchData();
+
+        // Check if data for 'name' is already in the cache
+        if (articleCache[name]) {
+            dispatch(ArticleSlice(articleCache[name].positive));
+            dispatch(NegativeArticleSlice(articleCache[name].negative));
+        } else if (!requestQueue[name]) { 
+            requestQueue[name] = true;
+            await fetchData();
+        }
     } catch (error) {
         console.error(error);
     }
@@ -50,6 +60,9 @@ export const ArticledisplayAction = (name, sort = 'desc', orderField = 'publishe
 
 
 
+
+
+// Pagination next
 export const NexpaginationAction = (positiveUrl, negativeUrl) => async (dispatch) => {
     try {
         const config = {
@@ -70,7 +83,7 @@ export const NexpaginationAction = (positiveUrl, negativeUrl) => async (dispatch
                 if (error.response && error.response.status === 429) {
                     console.error('Token limit exceeded. Retrying...');
                     await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second
-                    await fetchData(); // Retry the request
+                    await fetchData(); 
                 } else {
                     console.error('Error fetching paginated articles:', error);
                 }
@@ -86,10 +99,10 @@ export const NexpaginationAction = (positiveUrl, negativeUrl) => async (dispatch
 
 
 // Piechart totalcount
-export const PietotalresultAction = () => async (dispatch) => {
-    const MAX_RETRIES = 3;
-    let retryCount = 0;
+const pieTotalResultCache = {};
+let pieTotalResultRequestPending = false;
 
+export const PietotalresultAction = () => async (dispatch) => {
     const fetchData = async () => {
         try {
             const token = localStorage.getItem('accessToken');
@@ -105,17 +118,13 @@ export const PietotalresultAction = () => async (dispatch) => {
 
             dispatch(PietotalpositiveresultSlice(positiveResponse.data));
             dispatch(PietotalnegativeresultSlice(negativeResponse.data));
+
+            // Cache the data
+            pieTotalResultCache['positive'] = positiveResponse.data;
+            pieTotalResultCache['negative'] = negativeResponse.data;
         } catch (error) {
             if (error.response && error.response.status === 429) {
                 console.error('Too many requests. Retrying after 2 seconds...');
-                retryCount++;
-                if (retryCount <= MAX_RETRIES) {
-                    setTimeout(() => {
-                        fetchData();
-                    }, 1000);
-                } else {
-                    console.error('Max retries reached. Unable to fetch total result articles.');
-                }
             } else {
                 console.error('Error fetching total result articles:', error);
                 if (error.response && error.response.status === 401) {
@@ -123,8 +132,17 @@ export const PietotalresultAction = () => async (dispatch) => {
                     toast.error('Token is Not Valid');
                 }
             }
+        } finally {
+            pieTotalResultRequestPending = false;
         }
     };
 
-    await fetchData();
+    // Check if data is already in the cache
+    if (pieTotalResultCache['positive'] && pieTotalResultCache['negative']) {
+        dispatch(PietotalpositiveresultSlice(pieTotalResultCache['positive']));
+        dispatch(PietotalnegativeresultSlice(pieTotalResultCache['negative']));
+    } else if (!pieTotalResultRequestPending) { 
+        pieTotalResultRequestPending = true;
+        await fetchData();
+    }
 };
