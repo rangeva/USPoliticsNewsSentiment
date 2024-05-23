@@ -11,6 +11,7 @@ export default function Chart() {
     const pietotalNegativeCount = useSelector((state) => state.news.pietotalNegativeCount);
     const [isLoading, setIsLoading] = useState(true);
     const [tokenSubmitted, setTokenSubmitted] = useState(localStorage.getItem('tokenSubmitted'));
+     
 
 
     useEffect(() => {
@@ -18,6 +19,7 @@ export default function Chart() {
             const fetchData = async () => {
                 try {
                     await dispatch(PietotalresultAction());
+                    setIsLoading(false);
                 } catch (error) {
                     console.error('Error fetching data:', error);
                 } finally {

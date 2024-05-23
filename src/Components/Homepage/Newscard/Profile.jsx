@@ -8,7 +8,6 @@ import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
 import { verifyAccessToken } from '../../../utils/common.utils';
 import config from '../../../config.json';
-
 Modal.setAppElement('#root');
 
 export default function Profile() {
@@ -27,14 +26,16 @@ export default function Profile() {
     const [isTokenValid, setIsTokenValid] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
+    const [articlesData, setArticlesData] = useState(null);
+    const [showPageLoader, setShowPageLoader] = useState(true);
 
     const positivearticle = useSelector((state) => state.news.ArticlesData || {});
     const negativearticle = useSelector((state) => state.news.NegativearticleData || {});
     const totalPositiveCount = useSelector((state) => state.news.totalPositiveCount || 0);
     const totalNegativeCount = useSelector((state) => state.news.totalNegativeCount || 0);
 
-    const formattedTotalPositiveCount = new Intl.NumberFormat().format(totalPositiveCount);
-    const formattedTotalNegativeCount = new Intl.NumberFormat().format(totalNegativeCount);
+    const formattedTotalPositiveCount = totalPositiveCount != null ? new Intl.NumberFormat().format(totalPositiveCount) : null;
+    const formattedTotalNegativeCount = totalNegativeCount != null ? new Intl.NumberFormat().format(totalNegativeCount) : null;
 
     useEffect(() => {
         const storedToken = localStorage.getItem('accessToken');
@@ -47,6 +48,7 @@ export default function Profile() {
         }
     }, [id, token]);
 
+
     const checkToken = async (token) => {
         const isValid = await verifyAccessToken(token);
         if (isValid.status === 200) {
@@ -56,7 +58,12 @@ export default function Profile() {
             setIsTokenValid(true);
             setShowModal(false);
             document.body.style.overflow = 'auto';
-            fetchArticles(id, token);
+            // Check if articles data is already fetched
+            if (!articlesData) {
+                fetchArticles(id, token);
+            } else {
+                setIsLoading(false);
+            }
         } else {
             setError(' Access token is invalid. Please enter a new one.');
             setShowModal(true);
@@ -65,23 +72,37 @@ export default function Profile() {
         }
     };
 
+
+
     const fetchArticles = (id, token) => {
         setIsLoading(true);
         dispatch(ArticledisplayAction(id, token, order))
-            .then(() => setIsLoading(false))
+            .then((data) => {
+                setArticlesData(data);
+                setIsLoading(false);
+                setShowPageLoader(false);
+            })
             .catch(() => setIsLoading(false));
     };
 
 
+   
     const handleAccessTokenSubmit = async (token) => {
-        const isValid = await verifyAccessToken(token);
-        if (isValid.status === 200) {
-            checkToken(token);
-            setError('');
-        } else {
-            setError('Invalid access token. Please try again.');
+        try {
+            const isValid = await verifyAccessToken(token); 
+            if (isValid && isValid.status === 200) {
+                checkToken(token);
+                setError('');
+                setShowModal(false); 
+            } else {
+                setError('Invalid access token. Please try again.');
+            }
+        } catch (error) {
+            setError('Error validating access token. Please try again.');
         }
     };
+    
+    
 
     const handlePageChange = () => {
         setLoadingPagination(true);
@@ -120,8 +141,8 @@ export default function Profile() {
         navigate('/');
     };
 
-
     if (!person) return <div>Profile not found.</div>;
+
 
     return (
         <main>
@@ -129,7 +150,7 @@ export default function Profile() {
                 <Modal
                     className={'accessToken_modal'}
                     isOpen={showModal}
-                    onRequestClose={() => setShowModal(true)}
+                    onRequestClose={() => setShowModal(false)}
                     shouldCloseOnOverlayClick={false}
                     contentLabel="No Access Token Found"
                 >
@@ -143,9 +164,15 @@ export default function Profile() {
                     </a>
                 </Modal>
             )}
-
+                {showPageLoader && (
+                <div className="loader-container">
+                    <Loader type="Oval" color="#00BFFF" height={90} width={90} />
+                </div>
+            )}
             {isTokenValid && (
+                
                 <>
+             
                     <section className="header-section">
                         <div className='profile-sub-header mb-md-5'>
                             <div className='container'>
@@ -293,7 +320,7 @@ export default function Profile() {
 
                     <section className='articles-section bg_gray' ref={articlesSectionRef}>
                         <div className="container">
-                            {loadingPagination ? (
+                            {(loadingPagination || !positivearticle.posts || !negativearticle.posts) ? (
                                 <div className="loader-container">
                                     <Loader type="Oval" color="#ffffff" height={100} width={100} />
                                 </div>
@@ -303,8 +330,14 @@ export default function Profile() {
                                         <div className="positive-article wrapper">
                                             <div className="title-holder">
                                                 <h4>
-                                                    <span>{formattedTotalPositiveCount}</span>
-                                                    Positive Articles
+                                                    {formattedTotalPositiveCount !== null && formattedTotalPositiveCount !== "0" ? (
+                                                        <>
+                                                            <span>{formattedTotalPositiveCount}</span>
+                                                            Positive Articles
+                                                        </>
+                                                    ) : (
+                                                        <span>No data found</span>
+                                                    )}
                                                 </h4>
                                             </div>
                                             {positivearticle && positivearticle.posts && positivearticle.posts.map((article, index) => (
@@ -333,8 +366,14 @@ export default function Profile() {
                                         <div className="negative-article wrapper">
                                             <div className="title-holder">
                                                 <h4>
-                                                    <span>{formattedTotalNegativeCount}</span>
-                                                    Negative Articles
+                                                    {formattedTotalNegativeCount !== null && formattedTotalNegativeCount !== "0" ? (
+                                                        <>
+                                                            <span>{formattedTotalNegativeCount}</span>
+                                                            Negative Articles
+                                                        </>
+                                                    ) : (
+                                                        <span>No data found</span>
+                                                    )}
                                                 </h4>
                                             </div>
                                             {negativearticle && negativearticle.posts && negativearticle.posts.map((article, index) => (
