@@ -10,15 +10,15 @@
     "heroTitle": "Battle for the Oval",
     "subtitle": "Biden vs. Trump",
     "mainHeading": "Deciding America's Future",
-    "description": "Webz.io transforms the web into machine-ready feeds that plug right into any platform. So machines get\ndata just the way they need it — and companies easily turn web data into customer value."
+    "description": "Explore our demo: an interactive dashboard powered by Webz.io News API Lite, designed to analyze and display sentiment trends in US election news."
   },
 
 
   "homechart": {
     "mainTitle": "Tracking the Pulse:",
     "subTitle": "Viewer Sentiment Analysis of the US Election",
-    "description1": "Webz.io sources and collects data from across the web and transforms it into machine-ready feeds that plug right into any platform. It deploys a wide array of crawlers that run in near real-time, drawing from millions of sources — covering everything from the biggest news sites, to obscure blogs and forums, all the way to the furthest reaches of the dark web.",
-    "description2": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data exactly the way they need it, so companies easily turn web data into customer value."
+    "description1": "Our demo leverages Webz.io's extensive data capabilities to showcase sentiment trends in US election news. Webz.io sources and collects data from across the web, enriching it with sentiment analysis, categories, social information, and transforming it into machine-ready feeds. By deploying a wide array of crawlers that operate in near real-time, Webz.io draws from millions of sources, including major news sites, obscure blogs, forums, and even the dark web. This enriched and categorized data is stored in repositories, allowing machines to consume both live and historical data on demand.",
+    "description2": "Our interactive dashboard demonstrates how Webz.io's data can be seamlessly integrated to analyze and display sentiment trends, turning comprehensive web data into actionable customer insights."
   },
   
 
@@ -35,19 +35,19 @@
           "id": 1,
           "image": "/Images/Group 57.png",
           "title": "Get the News API Lite Access Token",
-          "text": "Webz.io transforms the web into machine-ready feeds that plug right into any platform. So machines get data just the way they need it — and companies easily turn web data into customer value"
+          "text": "Go to our News API web page and enter your email address. Next, check your inbox for an email containing your unique API key. It's completely free!"
         },
         {
           "id": 2,
           "image": "/Images/Group 58.png",
           "title": "Enter Access Token",
-          "text": "Webz.io transforms the web into machine-ready feeds that plug right into any platform. So machines get data just the way they need it — and companies easily turn web data into customer value"
+          "text": "To access the demo, enter the access token you received via email in the dialog box that appears. Please note that you cannot view the demo without the access token provided by Webz.io News Lite."
         },
         {
           "id": 3,
           "image": "/Images/Group 59.png",
           "title": "View Latest News by Viewers Sentiment",
-          "text": "Webz.io transforms the web into machine-ready feeds that plug right into any platform. So machines get data just the way they need it — and companies easily turn web data into customer value"
+          "text": "Enjoy the demo, which showcases positive and negative news about each candidate. You can scroll to see more news articles categorized by their sentiment, either positive or negative."
         }
       ]
     }
@@ -56,37 +56,37 @@
 
     "faqSection": {
       "title": "Frequently Asked Questions",
-      "description": "Webz.io sources and collects data from across the web and transforms it into\n machine-ready feeds that plug right into any platform.",
+      "description": "Here are some questions you may have and their answers:",
       "faqs": [
         {
           "id": 1,
-          "question": "What is the significance of the US election?",
-          "answer": "This is the first item's accordion body Lorazepam is FDA-approved for short-term (4 months) relief of anxiety symptoms related to anxiety disorders, anxiety-associated insomnia, anesthesia premedication in adults to relieve anxiety or to produce sedation/amnesia, and treatment of status epilepticus.."
+          "question": "Can I modify the demo to compare entities other than Donald Trump and Joe Biden?",
+          "answer": "Yes, of course! This is an open-source project that you can fork on GitHub and modify. For example, you can change the entities to compare Bitcoin vs. Ethereum. Here is the repo: [GitHub - USPoliticsNewsSentiment](https://github.com/rangeva/USPoliticsNewsSentiment)."
         },
         {
           "id": 2,
-          "question": "When is the next US presidential election scheduled to take place?",
-          "answer": "This is the second item's accordion body. Lorazepam is FDA-approved for short-term (4 months) relief of anxiety symptoms related to anxiety disorders, anxiety-associated insomnia, anesthesia premedication in adults to relieve anxiety or to produce sedation/amnesia, and treatment of status epilepticus."
+          "question": "Is the News API free?",
+          "answer": "Yes, it is. Webz.io offers a free version of its news API called News API Lite. You can find it here: [Webz.io News API Lite](https://webz.io/products/news-api#lite)."
         },
         {
           "id": 3,
-          "question": "Who are the major candidates in the upcoming election?",
-          "answer": "This is the third item's accordion body.Lorazepam is FDA-approved for short-term (4 months) relief of anxiety symptoms related to anxiety disorders, anxiety-associated insomnia, anesthesia premedication in adults to relieve anxiety or to produce sedation/amnesia, and treatment of status epilepticus."
+          "question": "What programming language is this demo written in?",
+          "answer": "The demo is written in JavaScript using the React framework."
         },
         {
           "id": 4,
-          "question": "What are the key issues being discussed in the election campaign?",
-          "answer": "This is the fourth item's accordion body.Lorazepam is FDA-approved for short-term (4 months) relief of anxiety symptoms related to anxiety disorders, anxiety-associated insomnia, anesthesia premedication in adults to relieve anxiety or to produce sedation/amnesia, and treatment of status epilepticus."
+          "question": "Why is the sentiment sometimes inaccurate for an article?",
+          "answer": "The sentiment analysis might sometimes be inaccurate due to the complexity and nuances of human language, which can be challenging for automated systems to interpret correctly. Factors such as sarcasm, context, and ambiguous language can affect the accuracy of sentiment detection."
         },
         {
           "id": 5,
-          "question": "How does the electoral college system function?",
-          "answer": "This is the fifth item's accordion body.Lorazepam is FDA-approved for short-term (4 months) relief of anxiety symptoms related to anxiety disorders, anxiety-associated insomnia, anesthesia premedication in adults to relieve anxiety or to produce sedation/amnesia, and treatment of status epilepticus."
+          "question": "Is there a guide on how to use the API?",
+          "answer": "Yes, you can find a quick guide here: [Quick Guide to the Webz.io Free News API Lite](https://webz.io/blog/news-api/quick-guide-to-the-webz-io-free-news-api-lite/)."
         },
         {
           "id": 6,
-          "question": "How can I stay informed about the latest updates and developments in the election?",
-          "answer": "This is the sixth item's accordion body.Lorazepam is FDA-approved for short-term (4 months) relief of anxiety symptoms related to anxiety disorders, anxiety-associated insomnia, anesthesia premedication in adults to relieve anxiety or to produce sedation/amnesia, and treatment of status epilepticus."
+          "question": "How often is the data updated?",
+          "answer": "Every time you refresh the page, a new API call is made to retrieve the most relevant news articles from the past 3 days."
         }
       ]
     },
@@ -144,8 +144,8 @@
     "additionalContent": {
       "emoji": "/Images/ph_smiley.svg",
       "title": "Sentiment Analysis",
-      "text": "Webz.io sources and collects data from across the web and transforms it into machine-ready feeds that plug right into any platform. It deploys a wide array of crawlers that run in near real-time, drawing from millions of sources — covering everything from the biggest news sites, to obscure blogs and forums, all the way to the furthest reaches of the dark web.",
-      "text2": "All stored in repositories, so machines consume live and historical data on demand. Webz.io gives machines data exactly the way they need it, so companies easily turn web data into customer value."
+      "text": "The results page presents a comprehensive view of the sentiment trends in news articles about each candidate. It categorizes articles into positive and negative sentiments, allowing you to quickly grasp the public perception. The page is designed to be interactive, enabling you to scroll through and explore a wide range of news articles. ",
+      "text2": "Each article is enriched with additional information like sentiment, categories, and social data, providing a detailed and nuanced understanding of how each candidate is being portrayed in the media. This clear visualization helps in analyzing and comparing the sentiment trends for each candidate effectively."
     }
     
 }
