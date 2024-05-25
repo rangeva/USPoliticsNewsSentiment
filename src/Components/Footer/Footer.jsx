@@ -24,6 +24,9 @@ export default function Footer() {
 
                                 <ul className='list-inline mb-lg-0'>
                                     <li>
+                                        <Link to="https://github.com/rangeva/USPoliticsNewsSentiment" className="text-reset">Source Code</Link>
+                                    </li>
+                                    <li>
                                         <Link to="https://webz.io" className="text-reset">Webz.io</Link>
                                     </li>
                                     <li>
