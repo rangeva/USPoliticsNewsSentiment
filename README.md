@@ -1,16 +1,30 @@
 # USPoliticsNewsSentiment
 
 
-
 ## Description
-This project is a web application for viewing news regarding US politics. It requires an API token for accessing the data. Users can select their favorite candidate to view particular news articles.
+This project is an open-source demo web application that showcases the use of the Webz.io News API Lite for viewing news about US politics. 
+The application allows users to select their favorite political candidate to view specific news articles related to them.
+
+<p align="left">
+  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture1.png" alt="Image 1" width="192"/>
+  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture2.png" alt="Image 2" width="192"/>
+  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture3.png" alt="Image 3" width="192"/>
+</p>
+
+
+To access the data, an API token is required, which can be obtained [using Webz.io Free News API](https://webz.io/products/news-api#lite):
+
+<img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/access_token.png" >
+
+For a quick guide on how to use the News API, visit this [link](https://webz.io/blog/news-api/quick-guide-to-the-webz-io-free-news-api-lite/).
+
 
 ## Installation
 To run this project locally, follow these steps:
 
 1. Clone the repository:
 
-   git clone https://github.com/rangeva/USPoliticsNewsSentiment/tree/workspace/navrinder
+   git clone https://github.com/rangeva/USPoliticsNewsSentiment/
 
 
 2. Navigate to the project directory
@@ -29,12 +43,6 @@ To run this project locally, follow these steps:
 5. Edit the text :
     If you need to edit static data in the project, I have added a config.json file inside the src for that purpose. You can edit the data in it.
    
-
-6. Config.js file : 
-  If there's ever a need to change the base URL in the project, it can be done in the config.js file
-    REACT_APP_BASE_URL =https://api.webz.io
-
-
 
 Once the server is running, open your web browser and go to http://localhost:3000 
 
