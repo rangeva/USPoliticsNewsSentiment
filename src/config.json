@@ -61,12 +61,12 @@
         {
           "id": 1,
           "question": "Can I modify the demo to compare entities other than Donald Trump and Joe Biden?",
-          "answer": "Yes, of course! This is an open-source project that you can fork on GitHub and modify. For example, you can change the entities to compare Bitcoin vs. Ethereum. Here is the repo: [GitHub - USPoliticsNewsSentiment](https://github.com/rangeva/USPoliticsNewsSentiment)."
+          "answer": "Yes, of course! This is an open-source project that you can fork on GitHub and modify. For example, you can change the entities to compare Bitcoin vs. Ethereum. Here is the repo: https://github.com/rangeva/USPoliticsNewsSentiment."
         },
         {
           "id": 2,
           "question": "Is the News API free?",
-          "answer": "Yes, it is. Webz.io offers a free version of its news API called News API Lite. You can find it here: [Webz.io News API Lite](https://webz.io/products/news-api#lite)."
+          "answer": "Yes, it is. Webz.io offers a free version of its news API called News API Lite. You can find it here: https://webz.io/products/news-api#lite."
         },
         {
           "id": 3,
@@ -81,7 +81,7 @@
         {
           "id": 5,
           "question": "Is there a guide on how to use the API?",
-          "answer": "Yes, you can find a quick guide here: [Quick Guide to the Webz.io Free News API Lite](https://webz.io/blog/news-api/quick-guide-to-the-webz-io-free-news-api-lite/)."
+          "answer": "Yes, you can find a quick guide here: https://webz.io/blog/news-api/quick-guide-to-the-webz-io-free-news-api-lite/."
         },
         {
           "id": 6,
@@ -144,7 +144,7 @@
     "additionalContent": {
       "emoji": "/Images/ph_smiley.svg",
       "title": "Sentiment Analysis",
-      "text": "The results page presents a comprehensive view of the sentiment trends in news articles about each candidate. It categorizes articles into positive and negative sentiments, allowing you to quickly grasp the public perception. The page is designed to be interactive, enabling you to scroll through and explore a wide range of news articles. ",
+      "text": "The results page presents a comprehensive view of the sentiment trends in news articles about the candidate. It categorizes articles into positive and negative sentiments, allowing you to quickly grasp the public perception. The page is designed to be interactive, enabling you to scroll through and explore a wide range of news articles. ",
       "text2": "Each article is enriched with additional information like sentiment, categories, and social data, providing a detailed and nuanced understanding of how each candidate is being portrayed in the media. This clear visualization helps in analyzing and comparing the sentiment trends for each candidate effectively."
     }
     
