@@ -10,7 +10,7 @@
     "heroTitle": "Battle for the Oval",
     "subtitle": "Biden vs. Trump",
     "mainHeading": "Deciding America's Future",
-    "description": "Explore our demo: an interactive dashboard powered by Webz.io News API Lite, designed to analyze and display sentiment trends in US election news. Download the code from https://github.com/rangeva/USPoliticsNewsSentiment"
+    "description": "Explore our demo: an interactive dashboard powered by Webz.io News API Lite, designed to analyze and display sentiment trends in US election news. <BR> Download the code from <a href="https://github.com/rangeva/USPoliticsNewsSentiment">github</a>."
   },
 
 
