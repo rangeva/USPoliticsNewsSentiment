@@ -2,7 +2,7 @@
 
 
 ## Description
-This project is an open-source demo web application that showcases the use of the Webz.io News API Lite for viewing news about US politics. 
+This project is an open-source demo web application that showcases the use of the Webz.io [News API](https://webz.io/products/news-api#lite) Lite for viewing news about US politics. 
 The application allows users to select their favorite political candidate to view specific news articles related to them.
 
 <p align="left">
