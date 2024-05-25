@@ -24,20 +24,15 @@ export default function Footer() {
 
                                 <ul className='list-inline mb-lg-0'>
                                     <li>
-                                        <Link to="/" className="text-reset">Home</Link>
+                                        <Link to="https://webz.io" className="text-reset">Webz.io</Link>
                                     </li>
                                     <li>
-                                        <Link to="/howitworks" className="text-reset">How it Works</Link>
+                                        <Link to="https://webz.io/products/news-api#lite" className="text-reset">Free News API</Link>
                                     </li>
                                     <li>
-                                        <Link to="/accesstoken" className="text-reset">Access Token</Link>
+                                        <Link to="https://webz.io/products/news-api#lite" className="text-reset">Access Token</Link>
                                     </li>
-                                    <li>
-                                        <Link to="/faq" className="text-reset">FAQ's</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="#" className="text-reset">Contact</Link>
-                                    </li>
+                                    
                                 </ul>
                             </div>
 
@@ -47,14 +42,9 @@ export default function Footer() {
                                 </h6>
                                 <ul className='list-inline mb-lg-0'>
                                     <li>
-                                        <Link to="#" className="text-reset">Terms of Services</Link>
+                                        <Link to="https://webz.io/tos-lite" className="text-reset">Terms of Services</Link>
                                     </li>
-                                    <li>
-                                        <Link to="#" className="text-reset">Privacy Policy</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="#" className="text-reset">News API</Link>
-                                    </li>
+                                    
                                 </ul>
                             </div>
 
@@ -62,25 +52,17 @@ export default function Footer() {
                                 <h6 className="foot-title">Social Media</h6>
                                 <ul className='list-inline social-icon mb-lg-0'>
                                     <li>                                        
-                                        <a href="https://www.facebook.com/your-page">
+                                        <a href="https://www.linkedin.com/feed/">
                                             <img src='/Images/telegram-icon.svg' alt='' className="img-fluid" />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://www.twitter.com/your-profile">
+                                        <a href="https://x.com/webz_io">
                                             <img src='/Images/x-icon.svg' alt='' className="img-fluid" />
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="https://www.google.com">
-                                            <img src='/Images/discord-bot.svg' alt='' className="img-fluid" />
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/your-profile">
-                                            <img src='/Images/web.svg' alt='' className="img-fluid" />
-                                        </a>
-                                    </li>
+                                   
+                                    
                                 </ul>
                             </div>
                         </div>
