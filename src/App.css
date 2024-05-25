@@ -1,0 +1,1779 @@
+/* Neue Haas Unica Font */
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-Black.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Black'), local('NeueHaasUnica-Black'),
+    url('./fonts/Neue/NeueHaasUnica-Black.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-Black.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-Black.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-Medium.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Medium'), local('NeueHaasUnica-Medium'),
+    url('./fonts/Neue/NeueHaasUnica-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-Medium.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-Medium.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-BoldItalic.eot');
+  src: local('Neue Haas Unica Bold Italic'), local('NeueHaasUnica-BoldItalic'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-ExtBlkIta.eot');
+  src: local('./fonts/Neue/Neue Haas Unica ExtBlk Ita'), local('NeueHaasUnica-ExtBlkIta'),
+    url('./fonts/Neue/NeueHaasUnica-ExtBlkIta.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-ExtBlkIta.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-ExtBlkIta.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-ExtBlkIta.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-ExtraBold.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Extra Bold'), local('NeueHaasUnica-ExtraBold'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBold.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBold.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-MediumItalic.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Medium Italic'), local('NeueHaasUnica-MediumItalic'),
+    url('./fonts/Neue/NeueHaasUnica-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-MediumItalic.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-MediumItalic.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-ExtraBoldItalic.eot');
+  src: local('./fonts/Neue/Neue Haas Unica ExtBd Ita'), local('NeueHaasUnica-ExtraBoldItalic'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBoldItalic.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBoldItalic.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-Italic.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Italic'), local('NeueHaasUnica-Italic'),
+    url('./fonts/Neue/NeueHaasUnica-Italic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-Italic.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-Italic.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-Light.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Light'), local('NeueHaasUnica-Light'),
+    url('./fonts/Neue/NeueHaasUnica-Light.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-Light.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-Light.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-ExtLtIta.eot');
+  src: local('./fonts/Neue/Neue Haas Unica ExtLt Ita'), local('NeueHaasUnica-ExtLtIta'),
+    url('./fonts/Neue/NeueHaasUnica-ExtLtIta.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-ExtLtIta.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-ExtLtIta.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-ExtLtIta.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-Bold.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Bold'), local('NeueHaasUnica-Bold'),
+    url('./fonts/Neue/NeueHaasUnica-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-Bold.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-Bold.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-ThinItalic.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Thin Italic'), local('NeueHaasUnica-ThinItalic'),
+    url('./fonts/Neue/NeueHaasUnica-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-ThinItalic.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-ThinItalic.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-LightItalic.eot');
+  src: local('./fonts/Neue/Neue Haas Unica Light Italic'), local('NeueHaasUnica-LightItalic'),
+    url('./fonts/Neue/NeueHaasUnica-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-LightItalic.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-LightItalic.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-ExtraLight.eot');
+  src: local('Neue Haas Unica Extra Light'), local('NeueHaasUnica-ExtraLight'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraLight.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraLight.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-Regular.eot');
+  src: local('Neue Haas Unica Regular'), local('NeueHaasUnica-Regular'),
+    url('./fonts/Neue/NeueHaasUnica-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-Regular.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-Regular.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-ExtraBlack.eot');
+  src: local('Neue Haas Unica Extra Black'), local('NeueHaasUnica-ExtraBlack'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBlack.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBlack.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBlack.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-ExtraBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-BoldItalic_1.eot');
+  src: local('Neue Haas Unica Bold Italic'), local('NeueHaasUnica-BoldItalic'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic_1.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic_1.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic_1.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-BoldItalic_1.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Unica';
+  src: url('./fonts/Neue/NeueHaasUnica-Thin.eot');
+  src: local('Neue Haas Unica Thin'), local('NeueHaasUnica-Thin'),
+    url('./fonts/Neue/NeueHaasUnica-Thin.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Neue/NeueHaasUnica-Thin.woff2') format('woff2'),
+    url('./fonts/Neue/NeueHaasUnica-Thin.woff') format('woff'),
+    url('./fonts/Neue/NeueHaasUnica-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* Arboria Font */
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-Medium.eot');
+  src: url('./fonts/Arboria/Arboria-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-Medium.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-Medium.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-BoldItalic.eot');
+  src: url('./fonts/Arboria/Arboria-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-BoldItalic.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-BoldItalic.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-BlackItalic.eot');
+  src: url('./fonts/Arboria/Arboria-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-BlackItalic.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-BlackItalic.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-Light.eot');
+  src: url('./fonts/Arboria/Arboria-Light.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-Light.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-Light.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-Thin.eot');
+  src: url('./fonts/Arboria/Arboria-Thin.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-Thin.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-Thin.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-Black.eot');
+  src: url('./fonts/Arboria/Arboria-Black.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-Black.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-Black.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-ThinItalic.eot');
+  src: url('./fonts/Arboria/Arboria-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-ThinItalic.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-ThinItalic.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-Bold.eot');
+  src: url('./fonts/Arboria/Arboria-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-Bold.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-Bold.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-BookItalic.eot');
+  src: url('./fonts/Arboria/Arboria-BookItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-BookItalic.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-BookItalic.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-BookItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-Book.eot');
+  src: url('./fonts/Arboria/Arboria-Book.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-Book.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-Book.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-MediumItalic.eot');
+  src: url('./fonts/Arboria/Arboria-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-MediumItalic.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-MediumItalic.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arboria';
+  src: url('./fonts/Arboria/Arboria-LightItalic.eot');
+  src: url('./fonts/Arboria/Arboria-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Arboria/Arboria-LightItalic.woff2') format('woff2'),
+    url('./fonts/Arboria/Arboria-LightItalic.woff') format('woff'),
+    url('./fonts/Arboria/Arboria-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* common css */
+
+:root {
+  --primary: #FC9F00;
+  --secondary: #273340;
+  --secondary-light: #273340b3;
+  --white: #ffffff;
+  --colorOne: #efefef;
+  --colorTwo: #f8f8f8;
+}
+
+body {
+  font-family: 'Neue Haas Unica';
+  font-size: 16px;
+  line-height: 22.4px;
+  font-weight: 400;
+  color: var(--secondary-light);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Arboria' !important;
+}
+
+.btn {
+  padding: 18px 27px 20px;
+  line-height: 13px;
+  border-radius: 41px;
+  font-family: 'Neue Haas Unica';
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.btnOne {
+  background-color: var(--primary);
+  color: var(--white);
+  transition: 0.3s ease-in-out;  
+  border: 1px solid var(--primary);
+}
+.btnOne:hover {  
+  background-color: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+input:focus {
+  border: unset;
+  outline: unset;
+  box-shadow: unset;
+}
+.btnTwo {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);  
+  transition: 0.3s ease-in-out;  
+}
+.btnTwo:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.section-title h2 {
+  font-size: 48px;
+  color: var(--primary);
+  line-height: 60.43px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.section-title h3 {
+  font-size: 48px;
+  color: var(--secondary);
+  line-height: 59.66px;
+  margin-bottom: 0;
+}
+
+.title-description {
+  color: var(--secondary);
+  margin-bottom: 42px;
+  margin-top: 24px;
+}
+.bg_gray_dark {
+  background-color: var(--colorOne);
+}
+.bg_gray {
+  background-color: var(--colorTwo);
+}
+
+.p-block {
+  padding-block: 100px;
+}
+
+.heading_one {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 59.66px;
+}
+
+.heading_two {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 60.43px;
+  text-align: center;
+  color: var(--secondary);
+}
+
+.color_lightGray {
+  color: #ffffffb3;
+}
+.color_secondary{
+  color: var(--secondary);
+}
+
+/* Header Css */
+
+header nav .navbar-nav {
+  gap: 25px;
+  padding-bottom: 5px;
+  padding-right: 11px;
+}
+
+header nav .navbar-nav a.nav-link {
+  color: var(--secondary);
+}
+
+header nav .navbar-brand {
+  padding: 0;
+}
+
+header nav.navbar {
+  padding-block: 24px;
+  border-bottom: 1px solid #2733401F;
+}
+
+header .btnOne {
+  background-color: var(--primary);
+  padding: 15px 18px 17px;
+  line-height: 14px;
+  border-radius: 36px;
+}
+
+button.navbar-toggler {
+  border: 0;
+}
+
+/* Hero title */
+section.title-sections {
+  padding-top: 66px;
+  padding-bottom: 83px;
+}
+
+section.title-sections .edge-tag {
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 87.01px;
+  text-align: center;
+  margin: 0;
+  color: var(--secondary);
+}
+
+section.title-sections .title-subtitle {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 77.4px;
+  text-align: center;
+  color: var(--primary);
+  margin: 0;
+}
+
+section.title-sections .title-description {
+  margin: 20px 0 42px;
+}
+
+/* Newscard Section */
+.newsCard-section .card {
+  box-shadow: 0px 4px 60px 0px #00000059;
+  background-color: var(--secondary);
+  max-height: 406px;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.newsCard-section .card img {
+  mix-blend-mode: lighten;
+  width: auto;
+  position: relative;
+  left: -13%;
+  height: 100%;
+}
+
+/* chard section */
+.chart-section {
+  margin-top: -210px;
+  padding-top: 430px;
+  padding-bottom: 224px;
+  margin-bottom: 10px;
+}
+
+/* How it works section */
+
+section.how-it-works-sections {
+  padding-block: 100px;
+  position: relative;
+}
+
+.card-group {
+  margin-top: 100px;
+}
+
+.card_styleTwo {
+  background-color: var(--colorTwo);
+  padding: 26px 30px 53px;
+  border: 5px solid var(--colorOne);
+  border-radius: 15px;
+}
+
+section.how-it-works-sections .card_img {
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.how-it-works-sections .card_img img {
+  width: 120px;
+  height: 120px;
+}
+
+section.how-it-works-sections .card-title {
+  font-size: 20px;
+  font-weight: bold;
+  padding-inline: 16px;
+  margin-bottom: 20px;
+}
+
+section.how-it-works-sections p {
+  color: #273340cc;
+  margin-bottom: 0;
+}
+
+section.how-it-works-sections .btn {
+  position: absolute;
+  bottom: -32px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 1px;
+  padding-inline: 32px;
+}
+
+.accessTokenContainer {
+  margin-top: 2px;
+  text-align: center;
+}
+
+.accessTokenTitleRow {
+  justify-content: center;
+}
+
+.accessTokenTitleCol {
+  margin-bottom: 20px;
+}
+
+.accessTokenContainer{
+  margin-top: 2px;
+  text-align: center;
+}
+/* Access Token */
+.blue-card {
+  background-color: var(--secondary);
+  color: var(--white);
+  padding-top: 39px;
+  padding-bottom: 150px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.blue-card h2 {
+  margin-bottom: 18px;
+  margin-top: 2px;
+}
+
+.blue-card p {
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  margin-bottom: 0;
+}
+
+.blue-card .searchForm {
+  width: 100%;
+  max-width: 827px;
+  padding: 35px 24px;
+  background-color: var(--white);
+  border-radius: 20px;
+  margin-inline: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -66px;
+}
+
+.blue-card .searchForm form {
+  background-color: var(--colorOne);
+  border-radius: 62px;
+}
+
+.blue-card .searchForm form .accessTokenInput {
+  background-color: transparent;
+  border: unset;
+  width: calc(100% - 158px);
+  margin: 0;
+  padding: 0 5px 0 26px;
+}
+
+.blue-card .searchForm form .accessTokenButton {
+  background-color: var(--primary);
+  color: var(--white);
+  width: 100%;
+  max-width: 148px;
+  margin-block: 4px;
+}
+
+/* Faq section */
+.faq-section {
+  padding-bottom: 150px;
+}
+
+.faq-section .main-title {
+  margin-bottom: 105px;
+}
+
+.faq-section .accordion {
+  max-width: 980px;
+  margin: auto;
+}
+
+.faq-section .accordion .accordion-item {
+  background-color: var(--colorOne);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 0;
+}
+
+.faq-section .accordion .accordion-item h2 button:focus {
+  box-shadow: unset;
+}
+
+.faq-section .accordion-button::after {
+  background-size: 14px;
+}
+
+.faq-section .accordion .accordion-item h2 button {
+  background-color: transparent;
+  color: var(--secondary);
+  font-size: 16px;
+  padding: 24px 20px 24px 27px;
+  box-shadow: unset;
+  line-height: 16px;
+  text-shadow: 0 0 var(--secondary);
+}
+
+.faq-section .accordion .accordion-item .accordion-collapse {
+  border-top: 1px solid #dee2e6;
+}
+/* footer */
+footer {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.foot-title {
+  font-family: Neue Haas Unica;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+footer ul li {
+  margin-bottom: 16px;
+}
+
+footer ul li:last-child {
+  margin-bottom: 0;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: 300;
+}
+
+footer section {
+  padding-top: 12px;
+  padding-bottom: 45px;
+  border-bottom: 1px solid #efefef33;
+}
+
+footer .social-icon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+footer .social-icon li {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 1px solid #ffffff4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.copyright-footer {
+  padding-block: 30px;
+  font-weight: 300;
+}
+
+
+
+/* Modal Css */
+.modal .modal-dialog {
+  width: 100%;
+  max-width: 980px;
+}
+
+.modal-header .modal-title {
+  font-family: 'Arboria';
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 37.77px;
+  color: var(--secondary);
+}
+
+.btn-close,
+.btn-close:hover {
+  color: var(--secondary);
+  opacity: 0.5;
+}
+
+.modal-content {
+  border-radius: 20px;
+}
+
+.modal-body {
+  padding: 40px;
+  text-align: center;
+}
+
+.modal-body h4 {
+  margin-bottom: 40px;
+  color: var(--secondary);
+  font-family: Neue Haas Unica !important;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.modal-body [class*=col-] {
+  background-color: var(--colorOne);
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid #27334026;
+  transition: 0.3s ease-in-out;
+}
+.modal-body [class*=col-]:hover {
+  background-color: var(--primary);
+}
+.modal-body [class*=col-]:hover h2, 
+.modal-body [class*=col-]:hover h5, 
+.modal-body [class*=col-]:hover p {
+  color: var(--white);
+}
+.modal-body [class*=col-]:hover h5 {
+  border-color: var(--white);
+}
+.modal-img-holder {
+  height: 439px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.modal-body h2 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30.22px;
+  color: var(--primary);
+}
+
+.modal-body h5 {
+  font-family: 'Neue Haas Unica' !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: center;
+  color: var(--secondary);
+  padding-bottom: 15px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--primary);
+  max-width: 210px;
+  margin-inline: auto;
+}
+
+.modal-body p {
+  margin: 0;
+  padding: 0 12px 12px;
+  color: var(--secondary);
+}
+
+/**** Profile Page ****/
+.back-bread a{
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.back-bread a span {
+  margin-right: 11.94px;
+  line-height: 11px !important;
+  height: 12px;
+  display: inline-block;
+}
+.candidate-info h2 {
+  margin-top: 35px;
+  margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 61.97px;
+  color: var(--primary);
+}
+.candidate-info p {
+  margin-bottom: 35px;
+  line-height: 16px;  
+}
+.pro-details {
+  padding-left: 52px;
+}
+.pro-image {
+  margin-bottom: 10px;
+}
+.profile-links{
+  background-color: var(--colorTwo);
+  border-radius: 10px;
+  padding-block: 16.46px;
+  text-align: center;
+}
+.map-img-holder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-links h5{
+  font-family: Neue Haas Unica !important;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--secondary);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.profile-links h6{
+  font-family: Neue Haas Unica !important;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--secondary);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.profile-links a.candidate-link{
+  color: var(--primary);
+  text-decoration: none;
+  line-height: 16px;
+  margin-bottom: 20px;
+  display: block;
+}
+.social-links ul {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.social-links ul li a{
+  margin: 0;
+}
+.pro-details h1 {
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 42.81px;
+  margin-bottom: 12px;
+  color: var(--secondary);
+}
+.pro-details h3 {
+  font-family: Neue Haas Unica !important;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #27334026;
+}
+.pro-details h4 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.83px;
+  margin-bottom: 16px;
+  color: var(--secondary);
+}
+.bb-1{
+  border-bottom: 1px solid #27334026;
+  margin-bottom: 40px ;
+  padding-bottom: 40px;
+}
+ul.cp-content li{
+  position: relative;
+  list-style: none;
+  margin-bottom: 16px;
+}
+ul.cp-content li::before {
+  content: "";
+  position: absolute;
+  background-image: url('../public/Images/list-marker.svg');
+  width: 20px;
+  height: 20px;
+  left: -33px;
+  background-repeat: no-repeat;
+  top: 2px;
+}
+.sa-section {
+  margin-top: 66px;
+  position: relative;
+}
+.sa-section .title-container {
+  margin-top: 10px;
+}
+.sa-section .wrapper{
+  background-color: var(--colorOne);
+  border-radius: 25px;
+  padding: 27px 37px;
+}
+.sa-section .emoji{
+  margin-right: 16px;
+  margin-bottom: 0;
+}
+.sa-section .main-content h2{
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 60.43px;
+  color: var(--primary);
+}
+.sa-section .main-content p{
+  color: var(--secondary);
+}
+.sa-section  .chart-container {
+  width: 100% !important;
+  max-width: 272.31px;
+  height: auto !important;
+}
+.articles-section {
+  padding-bottom: 69px;
+  padding-top: 172px;
+  margin-top: -172px;
+}
+.articles-section .positive-article {
+  background: linear-gradient(180deg, rgba(65, 215, 125, 0.09) 0%, rgba(65, 215, 125, 0) 100%);
+  border: 1px solid #41D77D;
+  border-radius: 25px;
+  padding: 25px;
+}
+.articles-section .negative-article {
+  background: linear-gradient(180deg, rgba(238, 76, 76, 0.09) 0%, rgba(238, 76, 76, 0) 100%);
+  border: 1px solid #EE4C4C;
+  border-radius: 25px;
+  padding: 25px;
+}
+.articles-section .wrapper h4 {
+    font-family: Neue Haas Unica !important;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding-top: 16px;
+    color: #273340B2;
+}
+.articles-section .wrapper h4.main-pn-card-title{
+  font-family: Neue Haas Unica !important;
+  font-size: 24px;
+  line-height: 30.22px;
+  font-weight: bold;
+  padding-top: 0;
+  color: var(--secondary);
+  margin-top: 15px;
+}
+.articles-section .wrapper h4 span{
+  font-weight: 800;
+  margin-right: 3px;
+}
+.articles-section .positive-article h4 span{
+  color: #41D77D;
+}
+.articles-section .negative-article h4 span{
+  color: #EE4C4C;
+}
+.articles-section .wrapper .title-holder {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 31px;
+  align-items: center;
+}
+.articles-section .wrapper .title-holder select {
+  padding: 3px 17px 5px 19px;
+  border: 1px solid #27334026;
+  border-radius: 29px;
+  background-color: transparent;
+  color: var(--secondary);
+}
+.articles-section .article-card-holder {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 14px 14px 20px;
+  margin-bottom: 16px;
+}
+.article-card-holder:last-child{
+  margin-bottom: 0;
+} 
+.articles-section .article-card-holder .ac-img-wrapper {
+  height: 214px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.article-info button {
+  border: 0;
+  padding: 7px 13px;
+  font-size: 14px;
+  line-height: 14px;
+}
+.positive-article .article-info button{
+  background-color: #41D77D;
+}
+.negative-article .article-info button{
+  background-color: #EE4C4C;
+}
+.articles-section .positive-article .article-card-holder a{
+  color:#41D77D ;
+  font-weight:500 ;
+}
+.articles-section .negative-article .article-card-holder a{
+  color:#EE4C4C ;
+  font-weight:500 ;
+}
+.articles-section .article-card-holder a{
+  text-decoration: none;
+}
+.articles-section .article-card-holder a span{
+  padding-left: 9px;
+}
+.articles-section .article-card-holder p.discription {
+  color: #27334080;
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+.article-card-holder .article-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.article-card-holder .article-info p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 14px;
+  color: #27334080;
+  position: relative;
+}
+.author-date-holder {
+  display: flex;
+  gap: 21px;
+  flex-wrap: wrap;
+}
+.author-date-holder p:first-child::after {
+  content: ".";
+  position: absolute;
+  right: -11px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  line-height: 8px;
+}
+section.pagination-section ul.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+section.pagination-section ul.pagination a.page-link {
+  border: 1px solid #27334026;
+  border-radius: 7px;
+  color: #27334080;
+  cursor: pointer;
+}
+section.pagination-section {
+  padding-bottom: 174px;
+}
+
+.dark-bg{
+  display: none;
+}
+/* Access Token Modal */
+.accessToken_modal {
+  background-color: var(--colorTwo);
+  padding: 40px 60px;
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+}
+.ReactModal__Overlay {
+  background-color: rgb(0 0 0 / 50%) !important;
+}
+.accessToken_modal h2,
+.accessToken_modal p{
+  text-align: center;
+}
+.accessToken_modal section.accessTokenContainer, 
+.accessToken_modal .p-block-mob {
+  padding: 0;
+}
+a.atBtn_holder {
+  width: fit-content;
+  display: block;
+  margin-top: 90px;
+  margin-inline: auto;
+}
+.accessToken_modal:focus-visible {
+  outline: unset;
+}
+.accessToken_modal .blue-card .searchForm {
+  width: calc(100% - 32px);
+  padding: 16px 11px;
+  bottom: -35px;
+  box-shadow: 0 0 8px #0000001f;
+}
+@media (min-width:1400px) {
+  .container {
+    max-width: 1204px;
+  }
+
+}
+
+@media (max-width:991.98px) {
+  .dark-bg,
+  nav.navbar:has([aria-expanded="true"]) .light-bg,
+  .nav-close,
+  header nav.navbar:has([aria-expanded="true"]) .nav-toggle{
+    display: none;
+  }
+  nav.navbar:has([aria-expanded="true"]) .dark-bg,
+  header nav.navbar:has([aria-expanded="true"]) .nav-close,
+  .nav-toggle{
+    display: block;
+  }
+  nav.navbar{
+    transition: 0.3s ease-in-out;
+  }
+  nav.navbar:has([aria-expanded="true"]) {
+    background-color: var(--secondary) !important;
+  }
+  header nav.navbar a.nav-link {
+    color: var(--white);
+    text-align: center;
+    font-size: 16px;
+  }
+  header nav.navbar ul.navbar-nav {
+    margin-top: 36px;
+    gap: 40px;
+    margin-bottom: 45px !important;
+  }
+  nav.navbar .head-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  nav.navbar:has([aria-expanded="true"]) .head-wrapper {
+    width: 113%;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #efefef26;
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+  header .btnOne {
+    margin-inline: auto;
+    display: block;
+    width: fit-content;
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .p-block-mob {
+    padding-block: 0;
+  }
+
+  .btn {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 12px 15px;
+  }
+
+  body {
+    font-size: 13px;
+    line-height: 18.2px;
+  }
+
+  header nav .navbar-brand img {
+    max-width: 100px;
+  }
+
+  header nav.navbar {
+    padding: 18px 16px;
+  }
+
+  header nav.navbar .container {
+    padding: 0;
+  }
+
+  header nav.navbar button.navbar-toggler {
+    padding: 3px 2px;
+  }
+
+  header nav.navbar button.navbar-toggler:focus {
+    box-shadow: unset;
+  }
+
+  section.title-sections .edge-tag {
+    font-size: 31.43px;
+    line-height: 39.07px;
+  }
+
+  section.title-sections .title-subtitle {
+    font-size: 26.94px;
+    line-height: 34.78px;
+  }
+
+  section.title-sections {
+    padding-top: 33px;
+    padding-bottom: 51px;
+  }
+
+  section.title-sections .container {
+    padding-inline: 25px;
+  }
+
+  section.title-sections .title-description {
+    padding-inline: 22px;
+    margin-bottom: 28px;
+    margin-top: 16px;
+  }
+
+  .newsCard-section .card {
+    max-height: 310px;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+
+  .newsCard-section .row {
+    gap: 16px;
+  }
+
+  .chart-section {
+    margin-top: -471px;
+    padding-top: 610px;
+    margin-bottom: 0;
+    padding-bottom: 100px;
+  }
+
+  .section-title h2 {
+    font-size: 31px;
+    line-height: 39.03px;
+    text-align: center;
+  }
+
+  .section-title h3 {
+    font-size: 31px;
+    line-height: 38.53px;
+    text-align: center;
+    padding-inline: 15px;
+  }
+
+  section.how-it-works-sections {
+    padding-top: 64px;
+    padding-bottom: 36px;
+  }
+
+  .title-description {
+    margin-top: 21px;
+  }
+
+  .card-group {
+    margin-top: 82px;
+  }
+
+  section.how-it-works-sections h3 {
+    padding: 0;
+  }
+
+  section.how-it-works-sections p,
+  .faq-section .main-title p {
+    padding-inline: 40px;
+  }
+
+  .card-group [class*="col-"] {
+    margin-bottom: 66px !important;
+  }
+
+  .accessTokenContainer {
+    padding-top: 80px;
+    padding-inline: 16px;
+    padding-bottom: 85px;
+  }
+
+  .blue-card .searchForm {
+    width: calc(100% - 32px);
+    padding: 16px 11px;
+    bottom: -35px;
+  }
+
+  .heading_two {
+    font-size: 31px;
+    line-height: 39.03px;
+  }
+
+  .faq-section .main-title {
+    margin-bottom: 60px;
+  }
+
+  .faq-section .accordion .accordion-item,
+  .faq-section .accordion .accordion-item h2 button {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 13px;
+  }
+
+  .faq-section .accordion .accordion-item h2 button {
+    padding: 13px;
+  }
+
+  .faq-section .accordion .accordion-item .accordion-body {
+    padding: 13px 13px 20px 13px;
+  }
+
+  .faq-section {
+    padding-bottom: 100px;
+  }
+
+  footer section {
+    padding-top: 16px;
+    padding-bottom: 59px;
+  }
+
+  footer .social-icon {
+    justify-content: center;
+  }
+
+  footer a.navbar-brand img {
+    max-width: 100px;
+    margin-bottom: 61px;
+  }
+
+  footer ul li a,
+  .copyright-footer {
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+  }
+
+  footer ul li {
+    margin-bottom: 24px;
+  }
+
+  footer ul:not([class*=col-]:last-child ul) {
+    margin-bottom: 70px;
+  }
+
+  .copyright-footer {
+    padding-bottom: 26px;
+    padding-top: 34px;
+  }
+
+  .modal .modal-dialog {
+    width: 100%;
+    max-width: 760px;
+  }
+
+  .modal-img-holder {
+    height: 330px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 25px;
+  }
+  .articles-section .wrapper h4.main-pn-card-title {
+    margin-top: 9.97px;
+    font-size: 16.53px;
+    line-height: 20.81px;
+  }
+  .articles-section .article-card-holder p.discription {
+    margin-top: 11.02px;
+    font-size: 11.02px;
+    line-height: 15.43px;
+  }
+  .articles-section .article-card-holder a {
+    margin-top: 15.85px !important;
+    font-size: 11.02px;
+    line-height: 11.02px;
+  }
+  .articles-section .article-card-holder a span {
+    max-width: 15.55px;
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 2.7px;
+  }
+  .article-info button,
+  .article-card-holder .article-info p {
+    font-size: 9.14px;
+    line-height: 9.14px;
+  }
+  .author-date-holder p:first-child::after {
+    line-height: 5px;
+    right: -9px;
+  }
+  .author-date-holder{
+    gap:14.47px;
+  }  
+  .articles-section .article-card-holder .ac-img-wrapper {
+    margin-bottom: 13.77px;
+    max-height:147.38px;
+    height: 100%;
+  }  
+  .articles-section .wrapper h4 {
+    font-size: 13.77px;
+    line-height: 13.77px;
+    margin-bottom: 0;
+    padding-top: 6px;
+  }
+}
+
+@media(max-width: 767.98px) {
+  .modal-body {
+    padding: 33px 21px;
+  }
+  .modal-header {
+    padding: 20px 24px 18px 27px;
+  }
+  .modal .modal-dialog {
+    max-width: 400px;
+    padding-inline: 16px;
+  }
+
+  .modal-body [class*=col-] {
+    flex: 100%;
+  }
+
+  .modal-header .modal-title {
+    font-size: 24px;
+    line-height: 30.22px;
+  }
+  .modal-body h4 {
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 30px;
+  }
+  .modal-img-holder {
+    height: 356px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 25px;
+  }
+  .modal-body h2 {
+    font-size: 19.51px;
+    line-height: 24.56px;
+  }
+  .modal-body h5 {
+    font-size: 11.38px;
+    line-height: 11.38px;
+    padding-bottom: 11.5px;
+    max-width: 170.69px;
+    margin-bottom: 19.74px;
+  }
+  .modal-img-holder img {
+    object-fit: cover;
+    height: 100%;
+  }
+  .modal-content {
+    border-radius: 10px;
+  }
+  .modal-body [class*=col-],
+  .modal-img-holder{
+    border-radius: 16.26px;
+  }  
+  .candidate-info h2 {
+  font-size: 24px;
+  line-height: 30.98px;
+  margin-top: 19px;
+  margin-bottom: 6.45px;
+  }
+  .profile-sub-header{
+    margin-bottom: 40px ;
+  }
+  .pro-image {
+    margin-bottom: 23px;
+  }
+  .pro-details h3 {
+    margin-bottom: 30px;
+  }
+  ul.cp-content li{
+    text-align: left;
+  }
+  ul.cp-content li::before {
+    left: -33px;
+  }
+  .pro-details h4.cp-list-title {
+    margin-bottom: 24px;
+  }
+  .profile-links {
+    border-radius: 7.62px;
+    background-color: var(--colorOne);
+  }
+  .sa-section {
+    margin-top: 80px;
+    padding-inline: 16px;
+    margin-bottom: 40px !important;
+    position: relative;
+  }
+  .sa-section .emoji {
+    width: 44px;
+  }
+  .sa-section .emoji img{
+    width: 100%;
+  }
+  .sa-section .main-content h2 {
+    font-size: 31px;
+    line-height: 39.03px;
+  }
+  .sa-section .wrapper {
+    padding: 32px 24px;
+  }
+  .pro-details{
+    padding-left: 0;
+  }
+  .pro-details p,
+  ul.cp-content li,
+  .profile-links a.candidate-link,
+  .sa-section .main-content p{
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+  .sa-section .main-content p{
+    margin-bottom: 46px;
+  }
+  .sa-section .chart-container{
+    padding-bottom: 4px ;
+  }
+  .map-img-holder {
+    padding-bottom: 18px;
+    max-width: 179px;
+    margin: auto;
+   }
+  .articles-section .positive-article {
+    margin-bottom: 40px;
+  }
+  .articles-section .wrapper h4 {
+    font-size: 13.77px;
+    line-height: 13.77px;
+    margin-bottom: 0;
+    padding-top: 6px;
+  }
+  .articles-section .wrapper {
+    padding: 17px;
+  }
+  section.pagination-section {
+    padding-bottom: 111px;
+  }
+  .articles-section .article-card-holder .ac-img-wrapper {
+    margin-bottom: 13.77px;
+    max-height:147.38px;
+  }
+  .articles-section .wrapper h4.main-pn-card-title {
+    margin-top: 9.97px;
+    font-size: 16.53px;
+    line-height: 20.81px;
+  }
+  .articles-section .article-card-holder p.discription {
+    margin-top: 11.02px;
+    font-size: 11.02px;
+    line-height: 15.43px;
+  }
+  .articles-section .article-card-holder a {
+    margin-top: 15.85px !important;
+    font-size: 11.02px;
+    line-height: 11.02px;
+  }
+  .articles-section .article-card-holder a span {
+    max-width: 15.55px;
+    display: inline-block;
+    padding-left: 6.2px;
+  }
+  
+  .articles-section .article-card-holder a span img{
+    width: 100%;
+  }
+  .back-bread a {
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 10px; 
+  }
+  .candidate-info p {
+    max-width: 322px;
+    margin-inline: auto;
+    margin-bottom: 20px;
+  }
+  .bb-1 {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+  .sa-section .title-container {
+    margin-top: 0;
+    justify-content: center;
+  }
+  .modal-dialog {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 28px;
+  }
+  .articles-section .wrapper .title-holder {
+    margin-bottom: 21.35px;
+  }
+  .articles-section .article-card-holder {
+    margin-bottom: 11.02px;
+  }
+  .accessToken_modal {
+    padding: 30px 20px;
+  }
+  a.atBtn_holder {
+    margin-top: 56px;
+  }
+}
+
+@media (max-width: 520px) {
+  .newsCard-section .card {
+    max-height: 249.36px;
+  }
+
+  .newsCard-section .card img {
+    mix-blend-mode: lighten;
+    width: auto;
+    position: relative;
+    left: -13%;
+    height: 100%;
+  }
+
+  .chart-section {
+    margin-top: -385px;
+    padding-top: 485px;
+    margin-bottom: 0;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width:400px) {
+  .chart-container {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  color: #41D77D;
+}
+
+/* backscren hiden  */
+.no-scroll {
+  /* overflow:hidden; */
+  overflow: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px; /* Adjust top position as needed */
+  right: 10px; /* Adjust right position as needed */
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #141313;
+}
+
+.close-button:hover {
+  color: rgb(238, 42, 42);
+  opacity: 0.5;
+}
+
