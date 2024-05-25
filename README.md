@@ -41,7 +41,7 @@ To run this project locally, follow these steps:
 
 
 5. Edit the text :
-    If you need to edit static data in the project, I have added a config.json file inside the src for that purpose. You can edit the data in it.
+    If you need to edit static data in the project, edit config.json file inside the src for that purpose. 
    
 
 Once the server is running, open your web browser and go to http://localhost:3000 
