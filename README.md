@@ -3,12 +3,12 @@
 
 ## Description
 This project is an open-source demo web application that showcases the use of the Webz.io [News API](https://webz.io/products/news-api#lite) Lite for viewing news about US politics. 
-The application allows users to select their favorite political candidate to view specific news articles related to them.
+The application allows users to select their favorite political candidate to view specific news articles related to them. You can, of course, fork this project and change the topics to whatever you want, such as Bitcoin vs. Ethereum. 
 
 <p align="left">
-  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture1.png" alt="Image 1" width="192"/>
-  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture2.png" alt="Image 2" width="192"/>
-  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture3.png" alt="Image 3" width="192"/>
+  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture1.png" alt="Image 1" width="192" style="vertical-align: top;"/>
+  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture2.png" alt="Image 2" width="192" style="vertical-align: top;"/>
+  <img src="https://github.com/rangeva/USPoliticsNewsSentiment/blob/main/screencapture3.png" alt="Image 3" width="192" style="vertical-align: top;"/>
 </p>
 
 
