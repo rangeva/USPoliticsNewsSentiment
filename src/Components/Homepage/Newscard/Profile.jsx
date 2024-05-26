@@ -7,7 +7,7 @@ import AccessToken from '../Acceesstoken/Accesstoken';
 import PieChart from '../../../Piechart/Piechart';
 import { ArticledisplayAction, NexpaginationAction } from '../../../Redux/Action/Authaction';
 import { verifyAccessToken } from '../../../utils/common.utils';
-import config from '../../../config.json';
+import config from '../../../config';
 Modal.setAppElement('#root');
 
 export default function Profile() {
