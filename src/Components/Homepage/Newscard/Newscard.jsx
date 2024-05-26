@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-import config from '../../../config.json';
+import config from '../../../config';
 
 export default function Newscard() {
     const [showModal, setShowModal] = useState(false);
