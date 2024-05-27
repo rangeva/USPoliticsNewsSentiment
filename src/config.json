@@ -17,7 +17,7 @@
   "homechart": {
     "mainTitle": "Tracking the Pulse:",
     "subTitle": "Viewer Sentiment Analysis of the US Election",
-    "description1": "Our demo leverages Webz.io's News API Lite to showcase sentiment trends in US election news. Webz.io collects data from across the web, enriching it with sentiment analysis, categories, social information, and transforming it into machine-ready data feeds. This interactive dashboard demonstrates how Webz.io's data can be seamlessly integrated to analyze and display sentiment trends, turning comprehensive web data into actionable customer insights.",
+    "description1": "Our demo leverages Webz.io's News API Lite to showcase sentiment trends in US election news. ",
     "description2": "Download the source code from: https://github.com/rangeva/USPoliticsNewsSentiment"
   },
   
