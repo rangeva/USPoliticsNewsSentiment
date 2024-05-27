@@ -2,7 +2,7 @@ const config = {
   accesstoken: {
     heading: "Enter Access Token",
     description:
-      "Webz.io sources and collects data from across the web and transforms it into machine-ready feeds that plug right into any platform.",
+      "To try the demo, you'll need access to the Webz.io News API Lite, which is available for free.",
     placeholder: "Enter your Access Token",
   },
   Title: {
@@ -16,7 +16,7 @@ const config = {
     mainTitle: "Tracking the Pulse:",
     subTitle: "Viewer Sentiment Analysis of the US Election",
     description1:
-      "Our demo leverages Webz.io's extensive data capabilities to showcase sentiment trends in US election news. Webz.io sources and collects data from across the web, enriching it with sentiment analysis, categories, social information, and transforming it into machine-ready feeds. By deploying a wide array of crawlers that operate in near real-time, Webz.io draws from millions of sources, including major news sites, obscure blogs, forums, and even the dark web. This enriched and categorized data is stored in repositories, allowing machines to consume both live and historical data on demand. Our interactive dashboard demonstrates how Webz.io's data can be seamlessly integrated to analyze and display sentiment trends, turning comprehensive web data into actionable customer insights.",
+      "Our demo leverages Webz.io's News API Lite to showcase sentiment trends in US election news. ",
     description2:
       "Download the source code from: https://github.com/rangeva/USPoliticsNewsSentiment",
   },
