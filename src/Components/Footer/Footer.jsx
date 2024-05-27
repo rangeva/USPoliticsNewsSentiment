@@ -55,7 +55,7 @@ export default function Footer() {
                                 <h6 className="foot-title">Social Media</h6>
                                 <ul className='list-inline social-icon mb-lg-0'>
                                     <li>                                        
-                                        <a href="https://www.linkedin.com/feed/">
+                                        <a href="https://www.linkedin.com/company/webz-io-official/posts">
                                             <img src='/Images/telegram-icon.svg' alt='' className="img-fluid" />
                                         </a>
                                     </li>
